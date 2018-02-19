@@ -1,3 +1,4 @@
+import React from 'react';
 import {Component} from 'react';
 
 
@@ -9,6 +10,7 @@ class MainView extends Component {
   render() {
     return (
       <div className="main-view-container">
+        <h1>Hi mom!</h1>
         <div className="main-header">
         </div>
         <div className="main-view-content">
