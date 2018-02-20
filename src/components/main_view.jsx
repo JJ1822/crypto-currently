@@ -1,6 +1,9 @@
 import React from 'react';
 import {Component} from 'react';
 
+// Components
+import MainHeader from './main_header';
+
 
 class MainView extends Component {
 
@@ -10,9 +13,7 @@ class MainView extends Component {
   render() {
     return (
       <div className="main-view-container">
-        <h1>Hi mom!</h1>
-        <div className="main-header">
-        </div>
+        <MainHeader />
         <div className="main-view-content">
           <div className="main-graph">
           </div>
