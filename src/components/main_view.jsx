@@ -4,6 +4,9 @@ import {Component} from 'react';
 // Components
 import MainHeader from './main_header';
 
+// Styles
+import '../styles/main-view-styles.css';
+
 
 class MainView extends Component {
 

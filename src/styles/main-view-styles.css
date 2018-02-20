@@ -2,9 +2,4 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: red;
-}
-
-* {
-  color: red;
 }
