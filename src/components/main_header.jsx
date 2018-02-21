@@ -1,6 +1,9 @@
 import React from 'react';
 import {Component} from 'react';
 
+// Styles
+import '../styles/main-view-styles.css';
+
 
 class Template extends Component {
 

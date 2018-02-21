@@ -1,5 +1,32 @@
+:root {
+  --light-blue: #93beea;
+  --lavender: #8d8cd7;
+  --indigo: #2d4093;
+  --slate-blue: #18415d;
+  --black: #000518;
+}
+
+.main-header-content {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  height: 75px;
+  background-color: var(--slate-blue);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .main-view-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 120px;
+  background-color: var(--black);
+}
+
+.coin-price-graph {
+  height: 500px;
+  width: 700px;
+  background-color: var(--light-blue);
+  border-radius: 5px;
 }
