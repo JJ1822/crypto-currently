@@ -3,7 +3,7 @@ import * as CoinAPIUtil from '../util/coin_api_util';
 
 export const RECEIVE_COIN_PRICE = 'RECEIVE_COIN_PRICE';
 
-export const requestCoinPrice = () => (
+export const requestCoinPrice = (coin_tag) => (
   CoinAPIUtil.fetchCoinPrice(coin_tag).then(payload => dispatch(receiveCoin(payload)))
 );
 
