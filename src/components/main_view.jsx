@@ -12,6 +12,13 @@ import '../styles/main-view-styles.css';
 class MainView extends Component {
 
 // ==================================================
+// Lifecycle
+// ==================================================
+componentDidMount() {
+  this.props.requestCoinPrice("BTC");
+}
+
+// ==================================================
 // Render
 // ==================================================
   render() {
