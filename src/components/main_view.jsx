@@ -16,6 +16,8 @@ class MainView extends Component {
 // ==================================================
 componentDidMount() {
   this.props.requestCoinPrice("BTC");
+  this.props.requestCoinPrice("ETH");
+  this.props.requestCoinPrice("LTC");
 }
 
 // ==================================================
