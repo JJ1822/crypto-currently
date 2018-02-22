@@ -13,7 +13,7 @@ class Template extends Component {
   render() {
     return (
       <div className="main-header-content">
-        Header
+        <h1 className="main-header-title">CryptoCurrently</h1>
       </div>
     );
   }

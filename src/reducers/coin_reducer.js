@@ -8,7 +8,7 @@ const coinReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_COIN_PRICE:
-      return merge({}, state, {[action.payload.data.base]: action.payload.data});
+      return merge({}, action.payload.data);
     default:
       return state;
   }
