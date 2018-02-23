@@ -5,6 +5,7 @@ import {Component} from 'react';
 import MainHeader from './main_header';
 import BasicFeed from './twitter_feed/basic_feed';
 import BarChart from './bar_chart/bar_chart';
+import PriceLineGraph from './price_line_graph/price_line_graph';
 // import CoinPriceGraph from './coin_price_graph';
 
 // Styles
@@ -93,6 +94,7 @@ handleGetBitcoin() {
         <h1 className="price-graph-title">{coinName}</h1>
         <p className="price-graph-tag">{coinTag}</p>
         <p className="price-graph-value">{coinPrice}</p>
+        <PriceLineGraph />
       </div>
     );
   }
@@ -130,12 +132,12 @@ handleGetBitcoin() {
       <div className="main-view-container">
         <MainHeader />
         <div className="main-view-content">
-          <div className="main-view-content-row">
+          <div className="main-view-content-column">
             {this.renderCoinPriceGraph()}
-            {this.renderSentimentPieChart()}
-          </div>
-          <div className="main-view-content-row">
             {this.renderHeatmap()}
+          </div>
+          <div className="main-view-content-column">
+            {this.renderSentimentPieChart()}
             {this.renderTwitterFeed()}
           </div>
         </div>
