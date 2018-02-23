@@ -8,7 +8,7 @@ import MainView from './main_view';
 
 
 const mapStateToProps = (state, ownProps) => {
-  const coinPrice = state.coin.amount ? parseFloat(state.coin.amount) : "loading...";
+  const coinPrice = state.coin.amount ? parseFloat(state.coin.amount) : null;
 
   let coinPriceList = [];
 
@@ -21,7 +21,7 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     // Default to Bitcoin.
     coinTag: "BTC",
-    coinName: "bitcoin",
+    coinName: "Bitcoin",
 
     // We define the state using the Coinbase API on the component view.
     // state.coins will be empty upon the initial render, so we must
