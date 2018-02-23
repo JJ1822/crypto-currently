@@ -108,6 +108,9 @@
 
 .sentiment-chart-content {
   /* Temporary styling for placeholding, change once feature is implemented */
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 
   background-color: var(--lightGrey);
   min-width: 300px;
@@ -129,6 +132,7 @@
   /* Temporary styling for placeholding, change once feature is implemented */
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 
   /* test */
   /* border: 2px solid green;  */
