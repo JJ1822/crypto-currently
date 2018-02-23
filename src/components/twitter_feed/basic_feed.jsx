@@ -4,7 +4,7 @@ const basicFeed = () => {
   return (
     <div className="twitter-feed-content">
         <div id="twitter-feed">
-          <a class="twitter-timeline"
+          <a className="twitter-timeline"
             data-dnt="true"
             href="https://twitter.com/hashtag/bitcoin"
             data-widget-id="965677532673581056"
