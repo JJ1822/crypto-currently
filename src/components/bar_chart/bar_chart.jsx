@@ -9,7 +9,7 @@ class BarChart extends Component {
 // ==================================================
   constructor(props){
     super(props);
-    this.dataVals = [12, 19, 20, 5, 2];
+    this.dataVals = [0, 0, 0, 0, 0];
 
     this.state = {
       data: {
@@ -51,12 +51,39 @@ class BarChart extends Component {
   }
 
 // ==================================================
+// NormalizeInput
+// ==================================================
+
+  normalizeInput(watsonResponseObject) {
+    this.state.data.datasets[0].data[0] = Math.floor(watsonResponseObject.anger * 100);
+    this.state.data.datasets[0].data[1] = Math.floor(watsonResponseObject.disgust * 100);
+    this.state.data.datasets[0].data[2] = Math.floor(watsonResponseObject.fear * 100);
+    this.state.data.datasets[0].data[3] = Math.floor(watsonResponseObject.joy * 100);
+    this.state.data.datasets[0].data[4] = Math.floor(watsonResponseObject.sadness * 100);
+  }
+
+
+// ==================================================
 // Lifecycle
 // ==================================================
 
-  componentWillReceiveProps(){
-    this.state.data.datasets[0].data = [Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10)];
-    console.log(this.state.data.datasets[0].data);
+  componentWillReceiveProps(newProps){
+
+    // Randomly changing
+    // this.state.data.datasets[0].data = [Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10)];
+    // console.log(this.state.data.datasets[0].data);
+
+
+    let wts1 = newProps.watsonResponseObject;
+    wts1 = {
+      anger: 0.023926,
+      disgust: 0.056478,
+      fear: 0.142307,
+      joy: 0.683256,
+      sadness: 0.118776
+    };
+
+    this.normalizeInput(wts1);
   }
 
 // ==================================================
