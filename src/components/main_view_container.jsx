@@ -8,7 +8,15 @@ import MainView from './main_view';
 
 
 const mapStateToProps = (state, ownProps) => {
-  const coinPrice = state.coin.amount ? parseFloat(state.coin.amount) : 0;
+  const coinPrice = state.coin.amount ? parseFloat(state.coin.amount) : "loading...";
+
+  let coinPriceList = [];
+
+  for (let i = 0; i < 16; i++) {
+    // Initialize price list to have all zeros to enable animation when
+    // graph loads data.
+    coinPriceList = coinPriceList.concat(0);
+  }
 
   return ({
     // Default to Bitcoin.
@@ -20,7 +28,7 @@ const mapStateToProps = (state, ownProps) => {
     // make sure it doesn't error and set the default to 0 before the
     // state loads the coins.
     coinPrice: coinPrice,
-    coinPriceList: [],
+    coinPriceList,
   })
 }
 
