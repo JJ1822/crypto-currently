@@ -104,10 +104,11 @@
 
 }
 
-/* Sentiment chart ----------------------------------------  */
+/* Sentiment PIE chart ----------------------------------------  */
 
 .sentiment-chart-content {
   /* Temporary styling for placeholding, change once feature is implemented */
+
   background-color: var(--lightGrey);
   min-width: 300px;
   height: 300px;
@@ -121,6 +122,35 @@
 	  stroke: #000;
 	  shape-rendering: crispEdges;
 	}
+
+/* Sentiment BAR chart ----------------------------------------  */
+
+.sentiment-bar-chart-content {
+  /* Temporary styling for placeholding, change once feature is implemented */
+  display: flex;
+  align-items: center;
+
+  /* test */
+  /* border: 2px solid green;  */
+
+  background-color: var(--lightGrey);
+  min-width: 300px;
+  height: 200px;
+  border-radius: 5px;
+  margin-right: 30px;
+}
+
+.sentiment-bar-chart-content path,
+	.sentiment-bar-chart-content line {
+	  fill: none;
+	  stroke: #000;
+	  shape-rendering: crispEdges;
+	}
+
+#actual-bar-chart {
+  /* margin: auto; */
+  height: 100%;
+}
 
 /* Heatmap ------------------------------------------------  */
 

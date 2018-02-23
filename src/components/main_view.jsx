@@ -131,14 +131,18 @@ handleGetBitcoin() {
     // FIXME: THIS IS ACTUALLY THE BAR CHART
     return (
       <div className="sentiment-chart-content">
-        <BarChart />
+        CIRCLE CHART
       </div>);
   }
 
   renderSentimentBarChart() {
     // TODO: Create bar chart DIV & CSS.
-    // <div className="sentiment-chart-bar-content"/>
+    // <div className="sentiment-bar-chart-content"/>
+    return (
 
+      <div className="sentiment-bar-chart-content">
+        <BarChart />
+      </div>);
   }
 
   renderHeatmap() {
@@ -164,6 +168,7 @@ handleGetBitcoin() {
             {this.renderHeatmap()}
           </div>
           <div className="main-view-content-column">
+            {this.renderSentimentBarChart()}
             {this.renderSentimentPieChart()}
             {this.renderTwitterFeed()}
           </div>

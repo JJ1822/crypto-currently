@@ -21,16 +21,14 @@ class BarChart extends Component {
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(153, 102, 255, 0.2)'
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(153, 102, 255, 1)'
             ],
             borderWidth: 3
         }]
@@ -70,20 +68,20 @@ class BarChart extends Component {
   componentWillReceiveProps(newProps){
 
     // Randomly changing
-    // this.state.data.datasets[0].data = [Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10)];
-    // console.log(this.state.data.datasets[0].data);
+    this.state.data.datasets[0].data = [Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10)];
+    console.log(this.state.data.datasets[0].data);
 
-
-    let wts1 = newProps.watsonResponseObject;
-    wts1 = {
-      anger: 0.023926,
-      disgust: 0.056478,
-      fear: 0.142307,
-      joy: 0.683256,
-      sadness: 0.118776
-    };
-
-    this.normalizeInput(wts1);
+    //
+    // let wts1 = newProps.watsonResponseObject;
+    // wts1 = {
+    //   anger: 0.023926,
+    //   disgust: 0.056478,
+    //   fear: 0.142307,
+    //   joy: 0.683256,
+    //   sadness: 0.118776
+    // };
+    //
+    // this.normalizeInput(wts1);
   }
 
 // ==================================================
@@ -92,7 +90,7 @@ class BarChart extends Component {
   render() {
     return (
       <div>
-        <Bar data={this.state.data} options={this.options} />
+        <Bar id='actual-bar-chart' data={this.state.data} options={this.options} />
       </div>
 
     );
