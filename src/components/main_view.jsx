@@ -26,6 +26,7 @@ constructor(props) {
     coinTag: this.props.coinTag,
     coinName: this.props.coinName,
     coinPrice: this.props.coinPrice,
+    coinPriceList: this.props.coinPriceList,
   });
 
   this.updateCoins = this.updateCoins.bind(this);
@@ -39,6 +40,7 @@ getInitialState() {
     coinName: this.props.coinName,
     coinTag: this.props.coinTag,
     coinPrice: this.props.coinPrice,
+    coinPriceList: this.props.coinPriceList,
   };
 }
 
@@ -48,6 +50,7 @@ componentWillMount() {
     coinName: this.props.coinName,
     coinTag: this.props.coinTag,
     coinPrice: this.props.coinPrice,
+    coinPriceList: this.props.coinPriceList,
   });
 }
 
@@ -66,11 +69,33 @@ componentWillUnmount() {
 // ==================================================
 // Methods
 // ==================================================
+updatePriceList(newPrice) {
+  if (this.state.coinPriceList.length === 0) {
+    // Initialize with 8 points that all just show price at the time the
+    // component was loaded.
+    return ([
+      newPrice,
+      newPrice,
+      newPrice,
+      newPrice,
+      newPrice,
+      newPrice,
+      newPrice,
+      newPrice,
+    ]);
+  } else {
+    return this.state.coinPriceList.slice(1).concat(newPrice);
+  }
+}
+
 updateCoins() {
   this.props.requestCoinPrice("BTC");
 
+  const newPrice = this.props.coinPrice;
+
   this.setState({
-    coinPrice: this.props.coinPrice,
+    coinPrice: newPrice,
+    coinPriceList: this.updatePriceList(newPrice),
   });
 }
 
@@ -86,7 +111,7 @@ handleGetBitcoin() {
 // Render
 // ==================================================
   renderCoinPriceGraph() {
-    const {coinName, coinTag, coinPrice} = this.state;
+    const {coinName, coinTag, coinPrice, coinPriceList} = this.state;
 
     // TODO: Create graph for coin price.
     return (
@@ -94,7 +119,9 @@ handleGetBitcoin() {
         <h1 className="price-graph-title">{coinName}</h1>
         <p className="price-graph-tag">{coinTag}</p>
         <p className="price-graph-value">{coinPrice}</p>
-        <PriceLineGraph />
+        <PriceLineGraph
+          prices={coinPriceList}
+        />
       </div>
     );
   }
