@@ -26,7 +26,7 @@ constructor(props) {
     coinTag: this.props.coinTag,
     coinName: this.props.coinName,
     coinPrice: this.props.coinPrice,
-    coinPriceList: [],
+    coinPriceList: this.props.coinPriceList,
   });
 
   this.updateCoins = this.updateCoins.bind(this);
@@ -40,7 +40,7 @@ getInitialState() {
     coinName: this.props.coinName,
     coinTag: this.props.coinTag,
     coinPrice: this.props.coinPrice,
-    coinPriceList: [],
+    coinPriceList: this.props.coinPriceList,
   };
 }
 
@@ -50,7 +50,7 @@ componentWillMount() {
     coinName: this.props.coinName,
     coinTag: this.props.coinTag,
     coinPrice: this.props.coinPrice,
-    coinPriceList: [],
+    coinPriceList: this.props.coinPriceList,
   });
 }
 
@@ -69,29 +69,33 @@ componentWillUnmount() {
 // ==================================================
 // Methods
 // ==================================================
-updatePriceList(coinPrice) {
-  if (this.state.coinPriceList === []) {
+updatePriceList(newPrice) {
+  if (this.state.coinPriceList.length === 0) {
+    // Initialize with 8 points that all just show price at the time the
+    // component was loaded.
     return ([
-      coinPrice,
-      coinPrice,
-      coinPrice,
-      coinPrice,
-      coinPrice,
-      coinPrice,
-      coinPrice,
-      coinPrice,
+      newPrice,
+      newPrice,
+      newPrice,
+      newPrice,
+      newPrice,
+      newPrice,
+      newPrice,
+      newPrice,
     ]);
   } else {
-    return this.state.coinPriceList
+    return this.state.coinPriceList.slice(1).concat(newPrice);
   }
 }
 
 updateCoins() {
   this.props.requestCoinPrice("BTC");
 
+  const newPrice = this.props.coinPrice;
+
   this.setState({
-    coinPrice: this.props.coinPrice,
-    coinPriceList: this.updatePriceList(this.props.coinPrice),
+    coinPrice: newPrice,
+    coinPriceList: this.updatePriceList(newPrice),
   });
 }
 
