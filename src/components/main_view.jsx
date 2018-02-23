@@ -3,6 +3,8 @@ import {Component} from 'react';
 
 // Components
 import MainHeader from './main_header';
+import BasicFeed from './twitter_feed/basic_feed';
+import BarChart from './bar_chart/bar_chart';
 // import CoinPriceGraph from './coin_price_graph';
 
 // Styles
@@ -97,7 +99,17 @@ handleGetBitcoin() {
 
   renderSentimentPieChart() {
     // TODO: Create pie chart for sentiment.
-    return <div className="sentiment-chart-content" />;
+    // FIXME: THIS IS ACTUALLY THE BAR CHART
+    return (
+      <div className="sentiment-chart-content">
+        <BarChart />
+      </div>);
+  }
+
+  renderSentimentBarChart() {
+    // TODO: Create bar chart DIV & CSS.
+    // <div className="sentiment-chart-bar-content"/>
+
   }
 
   renderHeatmap() {
@@ -106,8 +118,7 @@ handleGetBitcoin() {
   }
 
   renderTwitterFeed() {
-    // TODO: Create live feed for tweets.
-    return <div className="twitter-feed-content" />;
+    return <BasicFeed/>;
   }
 
   render() {
