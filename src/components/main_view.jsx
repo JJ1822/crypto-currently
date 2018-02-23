@@ -109,9 +109,11 @@ handleGetBitcoin() {
 
     return (
       <div className="price-graph-content">
-        <h1 className="price-graph-title">{coinName}</h1>
-        <p className="price-graph-tag">{coinTag}</p>
-        <p className="price-graph-value">{coinPrice}</p>
+        <div className="price-graph-header">
+          <h1 className="coin-name">{coinName}</h1>
+          <h1 className="coin-tag">{coinTag}</h1>
+          <h1 className="coin-price">{coinPrice}</h1>
+        </div>
         <PriceLineGraph
           intervalTime={intervalTime}
           prices={coinPriceList}
