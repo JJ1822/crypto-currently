@@ -8,6 +8,8 @@ import MainView from './main_view';
 
 
 const mapStateToProps = (state, ownProps) => {
+  const coinPrice = state.coin.amount ? parseFloat(state.coin.amount) : 0;
+
   return ({
     // Default to Bitcoin.
     coinTag: "BTC",
@@ -17,7 +19,8 @@ const mapStateToProps = (state, ownProps) => {
     // state.coins will be empty upon the initial render, so we must
     // make sure it doesn't error and set the default to 0 before the
     // state loads the coins.
-    coinPrice: state.coin.amount ? state.coin.amount : 0,
+    coinPrice: coinPrice,
+    coinPriceList: [],
   })
 }
 
