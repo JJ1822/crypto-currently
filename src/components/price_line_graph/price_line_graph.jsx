@@ -9,6 +9,8 @@ class PriceLineGraph extends Component {
 // Methods
 // ==================================================
   getData() {
+    const {prices} = this.props;
+
     return {
       // TODO: This should update with minutes.
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -34,7 +36,7 @@ class PriceLineGraph extends Component {
           pointHitRadius: 10,
 
           // TODO: This should have prices.
-          data: [65, 59, 80, 81, 56, 55, 40]
+          data: prices,
         }
       ]
     };

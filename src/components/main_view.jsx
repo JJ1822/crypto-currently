@@ -111,7 +111,7 @@ handleGetBitcoin() {
 // Render
 // ==================================================
   renderCoinPriceGraph() {
-    const {coinName, coinTag, coinPrice} = this.state;
+    const {coinName, coinTag, coinPrice, coinPriceList} = this.state;
 
     // TODO: Create graph for coin price.
     return (
@@ -120,7 +120,7 @@ handleGetBitcoin() {
         <p className="price-graph-tag">{coinTag}</p>
         <p className="price-graph-value">{coinPrice}</p>
         <PriceLineGraph
-
+          prices={coinPriceList}
         />
       </div>
     );
