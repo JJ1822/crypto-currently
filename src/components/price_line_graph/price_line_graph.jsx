@@ -34,13 +34,26 @@ class PriceLineGraph extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-
-          // TODO: This should have prices.
           data: prices,
         }
       ]
     };
   };
+
+  getOptions() {
+    const {prices} = this.props;
+
+    return {
+      scales: {
+        yAxes: [{
+          ticks: {
+            suggestedMin: (Math.min.apply(Math, prices) - 10),
+            suggestedMax: (Math.max.apply(Math, prices) + 10),
+          }
+        }]
+      }
+    };
+  }
 
 // ==================================================
 // Render
@@ -48,7 +61,10 @@ class PriceLineGraph extends Component {
   render() {
     return (
       <div>
-        <Line data={this.getData()} />
+        <Line
+          data={this.getData()}
+          options={this.getOptions()}
+        />
       </div>
 
     );

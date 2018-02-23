@@ -35,15 +35,6 @@ constructor(props) {
 // ==================================================
 // Lifecycle
 // ==================================================
-getInitialState() {
-  return {
-    coinName: this.props.coinName,
-    coinTag: this.props.coinTag,
-    coinPrice: this.props.coinPrice,
-    coinPriceList: this.props.coinPriceList,
-  };
-}
-
 componentWillMount() {
   this.setState({
     // Default value is defined in MainViewContainer.
@@ -55,10 +46,9 @@ componentWillMount() {
 }
 
 componentDidMount() {
-  console.log("didmount", this.props);
   this.coinPriceUpdate = setInterval(
     () => this.updateCoins(),
-    3000
+    2000
   );
 }
 
@@ -113,7 +103,6 @@ handleGetBitcoin() {
   renderCoinPriceGraph() {
     const {coinName, coinTag, coinPrice, coinPriceList} = this.state;
 
-    // TODO: Create graph for coin price.
     return (
       <div className="price-graph-content">
         <h1 className="price-graph-title">{coinName}</h1>
