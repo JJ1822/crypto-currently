@@ -132,12 +132,12 @@ handleGetBitcoin() {
       <div className="main-view-container">
         <MainHeader />
         <div className="main-view-content">
-          <div className="main-view-content-row">
+          <div className="main-view-content-column">
             {this.renderCoinPriceGraph()}
-            {this.renderSentimentPieChart()}
-          </div>
-          <div className="main-view-content-row">
             {this.renderHeatmap()}
+          </div>
+          <div className="main-view-content-column">
+            {this.renderSentimentPieChart()}
             {this.renderTwitterFeed()}
           </div>
         </div>
