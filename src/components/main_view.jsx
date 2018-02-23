@@ -26,6 +26,7 @@ constructor(props) {
     coinTag: this.props.coinTag,
     coinName: this.props.coinName,
     coinPrice: this.props.coinPrice,
+    coinPriceList: [],
   });
 
   this.updateCoins = this.updateCoins.bind(this);
@@ -39,6 +40,7 @@ getInitialState() {
     coinName: this.props.coinName,
     coinTag: this.props.coinTag,
     coinPrice: this.props.coinPrice,
+    coinPriceList: [],
   };
 }
 
@@ -48,6 +50,7 @@ componentWillMount() {
     coinName: this.props.coinName,
     coinTag: this.props.coinTag,
     coinPrice: this.props.coinPrice,
+    coinPriceList: [],
   });
 }
 
@@ -66,11 +69,29 @@ componentWillUnmount() {
 // ==================================================
 // Methods
 // ==================================================
+updatePriceList(coinPrice) {
+  if (this.state.coinPriceList === []) {
+    return ([
+      coinPrice,
+      coinPrice,
+      coinPrice,
+      coinPrice,
+      coinPrice,
+      coinPrice,
+      coinPrice,
+      coinPrice,
+    ]);
+  } else {
+    return this.state.coinPriceList
+  }
+}
+
 updateCoins() {
   this.props.requestCoinPrice("BTC");
 
   this.setState({
     coinPrice: this.props.coinPrice,
+    coinPriceList: this.updatePriceList(this.props.coinPrice),
   });
 }
 
@@ -94,7 +115,9 @@ handleGetBitcoin() {
         <h1 className="price-graph-title">{coinName}</h1>
         <p className="price-graph-tag">{coinTag}</p>
         <p className="price-graph-value">{coinPrice}</p>
-        <PriceLineGraph />
+        <PriceLineGraph
+
+        />
       </div>
     );
   }

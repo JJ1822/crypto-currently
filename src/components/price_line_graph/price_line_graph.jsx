@@ -8,7 +8,6 @@ class PriceLineGraph extends Component {
 // ==================================================
 // Methods
 // ==================================================
-
   getData() {
     return {
       // TODO: This should update with minutes.
