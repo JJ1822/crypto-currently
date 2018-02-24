@@ -60,6 +60,12 @@ class BarChart extends Component {
     this.state.data.datasets[0].data[4] = Math.floor(watsonResponseObject.sadness * 100);
   }
 
+  componentDidMount() {
+    fetch('/api/tones')
+      .then(res => res)
+      .then(tone => this.setState({ tone: tone }));
+      console.log(this);
+  }
 
 // ==================================================
 // Lifecycle
