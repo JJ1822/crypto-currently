@@ -15,11 +15,9 @@
 .env.development.local
 .env.test.local
 .env.production.local
+twitter.js
+tone_analyser.js
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-
-src/util/twitter
-src/util/tone_analyser
