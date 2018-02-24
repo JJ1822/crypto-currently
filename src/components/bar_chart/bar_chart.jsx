@@ -39,7 +39,8 @@ class BarChart extends Component {
       scales: {
         yAxes: [{
             ticks: {
-                beginAtZero:true
+                beginAtZero:true,
+                max: 100
             }
         }]
       }
@@ -68,20 +69,18 @@ class BarChart extends Component {
   componentWillReceiveProps(newProps){
 
     // Randomly changing
-    this.state.data.datasets[0].data = [Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10)];
-    console.log(this.state.data.datasets[0].data);
+    // this.state.data.datasets[0].data = [Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10)];
+    // console.log(this.state.data.datasets[0].data);
 
-    //
-    // let wts1 = newProps.watsonResponseObject;
-    // wts1 = {
-    //   anger: 0.023926,
-    //   disgust: 0.056478,
-    //   fear: 0.142307,
-    //   joy: 0.683256,
-    //   sadness: 0.118776
-    // };
-    //
-    // this.normalizeInput(wts1);
+
+    let wts1 = newProps.watsonResponseObject;
+    wts1 = { anger: 0.023926,
+     disgust: 0.056478,
+     fear: 0.142307,
+     joy: 0.683256,
+     sadness: 0.118776 };
+
+    this.normalizeInput(wts1);
   }
 
 // ==================================================
