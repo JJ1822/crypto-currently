@@ -35,18 +35,10 @@ constructor(props) {
 // ==================================================
 // Lifecycle
 // ==================================================
-getInitialState() {
-  return {
-    coinName: this.props.coinName,
-    coinTag: this.props.coinTag,
-    coinPrice: this.props.coinPrice,
-    coinPriceList: this.props.coinPriceList,
-  };
-}
-
 componentWillMount() {
   this.setState({
     // Default value is defined in MainViewContainer.
+    intervalTime: 2000,
     coinName: this.props.coinName,
     coinTag: this.props.coinTag,
     coinPrice: this.props.coinPrice,
@@ -55,10 +47,9 @@ componentWillMount() {
 }
 
 componentDidMount() {
-  console.log("didmount", this.props);
   this.coinPriceUpdate = setInterval(
     () => this.updateCoins(),
-    3000
+    this.state.intervalTime,
   );
 }
 
@@ -70,19 +61,16 @@ componentWillUnmount() {
 // Methods
 // ==================================================
 updatePriceList(newPrice) {
-  if (this.state.coinPriceList.length === 0) {
-    // Initialize with 8 points that all just show price at the time the
-    // component was loaded.
-    return ([
-      newPrice,
-      newPrice,
-      newPrice,
-      newPrice,
-      newPrice,
-      newPrice,
-      newPrice,
-      newPrice,
-    ]);
+  if (this.state.coinPriceList.every((x) => (x === 0))) {
+    let priceList = []
+    // Initialize with 16 points that all just show price at the time the
+    // component was loaded; this will animate graph upwards.
+    for (let i = 0; i < 16; i++) {
+      priceList = priceList.concat(newPrice);
+    }
+
+    return priceList;
+
   } else {
     return this.state.coinPriceList.slice(1).concat(newPrice);
   }
@@ -111,15 +99,23 @@ handleGetBitcoin() {
 // Render
 // ==================================================
   renderCoinPriceGraph() {
-    const {coinName, coinTag, coinPrice, coinPriceList} = this.state;
+    const {
+      intervalTime,
+      coinName,
+      coinTag,
+      coinPrice,
+      coinPriceList,
+    } = this.state;
 
-    // TODO: Create graph for coin price.
     return (
       <div className="price-graph-content">
-        <h1 className="price-graph-title">{coinName}</h1>
-        <p className="price-graph-tag">{coinTag}</p>
-        <p className="price-graph-value">{coinPrice}</p>
+        <div className="price-graph-header">
+          <h1 className="coin-name">{coinName}</h1>
+          <h1 className="coin-tag">{coinTag}</h1>
+          <h1 className="coin-price">{coinPrice ? `$${coinPrice}` : "...loading"}</h1>
+        </div>
         <PriceLineGraph
+          intervalTime={intervalTime}
           prices={coinPriceList}
         />
       </div>
