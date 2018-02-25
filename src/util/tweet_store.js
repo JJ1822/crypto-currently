@@ -13,7 +13,7 @@ class TwitterStore {
   recieveTweet(tweet) {
     this.newTweets.push(tweet);
     // console.log(this.newTweets);
-    if(Date.now() - this.clock > (1000 * 60 * 2)) {
+    if(Date.now() - this.clock > (1000 * 60 * 20)) {
       this.filterTweets();
       this.clock = Date.now();
     }
