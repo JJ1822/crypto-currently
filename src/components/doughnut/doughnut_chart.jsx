@@ -88,6 +88,7 @@ class DoughnutChart extends Component {
     return (
       <div>
         <div className="chart-title">
+          <h1>POSITIVE / NEGATIVE</h1>
         </div>
 
         <Doughnut data={this.state.data} options={this.options}/>

@@ -72,8 +72,8 @@ class BarChart extends Component {
   }
 
   componentWillMount() {
-    this.apiCall();
-    setInterval(this.apiCall, 1000 * 30)
+    // this.apiCall();
+    // setInterval(this.apiCall, 1000 * 30)
     }
 
 
@@ -107,7 +107,7 @@ class BarChart extends Component {
     return (
       <div>
         <div className="chart-title">
-          <h1>Emotional Distribution</h1>
+          <h1>EMOTIONAL DISTRIBUTION</h1>
         </div>
 
         <Bar id='actual-bar-chart' data={this.state.data} options={this.options} />
