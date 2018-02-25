@@ -13,6 +13,8 @@
   --orange: rgb(236, 114, 119);
   /* HEX #f85557 */
   --red: rgb(248, 85, 87);
+
+  --dashPurp: #24263c;
 }
 
 
@@ -62,8 +64,8 @@
   align-items: center;
   padding-top: 120px;
   padding-bottom: 120px;
-  background-color: var(--black);
-  /* background-color: var(--darkestGrey); */
+  /* background-color: var(--black); */
+  background-color: var(--darkestGrey);
   color: white;
 }
 
@@ -237,7 +239,7 @@
   height: 300px;
   border-radius: 5px;
   margin-right: 30px;
-  
+
 }
 
 
