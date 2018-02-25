@@ -10,7 +10,7 @@ class BarChart extends Component {
 // ==================================================
   constructor(props){
     super(props);
-    
+
     this.counter = 0;
     this.state = {
       response: [{
@@ -61,6 +61,9 @@ class BarChart extends Component {
 // ==================================================
 
   normalizeInput(watsonResponseObject) {
+    // console.log("============================");
+    // console.log(watsonResponseObject);
+    // console.log(this);
     return [ Math.floor(watsonResponseObject.anger * 100),
      Math.floor(watsonResponseObject.disgust * 100),
      Math.floor(watsonResponseObject.fear * 100),
@@ -88,7 +91,7 @@ class BarChart extends Component {
   apiCall() {
     fetch('/tone')
         .then(response => {
-          console.log(response);
+          // console.log(response);
           return response.json();
         })
         .then((values) => {

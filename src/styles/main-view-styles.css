@@ -183,11 +183,11 @@
   /* Temporary styling for placeholding, change once feature is implemented */
   display: flex;
   align-content: center;
-  margin-top: 50px;
+  margin-top: 20px;
+  margin-right: 30px;
   background-color: var(--lightGrey);
   height: 300px;
   border-radius: 5px;
-  margin-right: 30px;
 }
 
 /* Twitter Feed -------------------------------------------  */
@@ -246,7 +246,7 @@
 }
 
 #map .point {
-  opacity: 0.3;
+  opacity: 0.5;
 }
 
 #map .radar-ping {
