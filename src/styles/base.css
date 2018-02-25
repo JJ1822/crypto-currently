@@ -25,7 +25,7 @@ form, label, embed, footer, header, button, nav, section {
 }
 
 html, body {
-  background-color: rgb(34, 34, 34);
+  /* background-color: rgb(34, 34, 34); */
 }
 
 footer, header, menu, nav, section {

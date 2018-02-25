@@ -62,8 +62,8 @@
   align-items: center;
   padding-top: 120px;
   padding-bottom: 120px;
-  /* background-color: var(--black); */
-  background-color: var(--darkestGrey);
+  background-color: var(--black);
+  /* background-color: var(--darkestGrey); */
   color: white;
 }
 
@@ -74,7 +74,7 @@
 }
 
 #main-view-map-and-feed{
-  margin-top: 20px;
+  margin-top: 8px;
   display: flex;
   justify-content: space-between;
 }
@@ -88,12 +88,17 @@
 
 .main-view-content {
   /* display: flex; */
+
+  /* main dash width */
+
+  width: 1000px;
+  /* border: 2px solid green; */
 }
 
 .main-view-content-column {
   display: flex;
   flex-direction: column;
-  width: 700px;
+  /* width: 800px; */
 }
 
 .main-view-content-column:last-of-type {
@@ -115,6 +120,9 @@
 
 .price-graph-header {
   display: flex;
+  /* padding: 15px; */
+  color: #888;
+  /* font-size: 30px; */
   width: 100%;
   justify-content: center;
   text-align: center;
@@ -138,13 +146,14 @@
   /* Temporary styling for placeholding, change once feature is implemented */
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 
   background-color: var(--lightGrey);
-  min-width: 300px;
-  height: 250px;
+  /* min-width: 300px; */
+  height: 220px;
   border-radius: 5px;
   margin-right: 30px;
+  margin-bottom: 12px;
 }
 
 .sentiment-chart-content path,
@@ -160,16 +169,15 @@
   /* Temporary styling for placeholding, change once feature is implemented */
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 
   /* test */
   /* border: 2px solid green;  */
 
   background-color: var(--lightGrey);
-  min-width: 300px;
-  height: 250px;
+  /* min-width: 300px; */
+  height: 220px;
   border-radius: 5px;
-  margin-right: 30px;
 }
 
 .sentiment-bar-chart-content path,
@@ -190,10 +198,20 @@
   /* background-color: blue; */
 }
 
-#actual-bar-chart {
-  /* margin: auto; */
-  /* height: 100%; */
-  /* color: red; */
+
+.main-tweet-box {
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 340px;
+
+  height: 218px;
+  padding-top: 2px;
+
+  /* test */
+  /* border: 2px solid green;  */
+
+  background-color: var(--lightGrey);
+  border-radius: 5px;
 }
 
 /* Heatmap ------------------------------------------------  */
@@ -215,10 +233,11 @@
   /* Temporary styling for placeholding, change once feature is implemented */
   /* background-color: var(--light-blue); */
   background-color: var(--lightGrey);
-  width: 300px;
+  width: 310px;
   height: 300px;
   border-radius: 5px;
   margin-right: 30px;
+  
 }
 
 
@@ -273,6 +292,4 @@
   fill: none;
   /* fill: var(--orange); */
 }
-
-
-/* ----------MAP STUFF---------- */
+/* -------------------- */
