@@ -12,7 +12,6 @@ class SingleTweet extends Component {
       <div className='main-tweet-box'>
         <blockquote className="twitter-tweet"
           data-cards="hidden"
-          data-theme="dark"
           data-width="100%"
           data-height="100%"
           data-lang="en">

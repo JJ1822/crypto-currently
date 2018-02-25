@@ -1,6 +1,5 @@
 import React from 'react';
 import {Component} from 'react';
-import Chart from 'chart.js';
 import {Doughnut} from 'react-chartjs-2';
 
 class DoughnutChart extends Component {
@@ -10,12 +9,9 @@ class DoughnutChart extends Component {
   // ==================================================
     constructor(props){
       super(props);
-      this.agregateEmotions = this.agregateEmotions.bind(this);
-      // this.dataVals = [25, 75];
-      // this.counter = 0;
       this.state = {
         data: {
-          labels: ["Negative", "Positive", "Neutral"],
+          labels: ["Negative", "Positive"],
           datasets: [{
               data: [25, 75],
               backgroundColor: [

@@ -113,7 +113,7 @@ handleGetBitcoin() {
     return (
       <div className="price-graph-content">
         <div className="price-graph-header">
-          <h1 className="coin-name">{coinName}</h1>
+          {/*<h1 className="coin-name">{coinName}</h1>*/}
           <h1 className="coin-tag">{coinTag}</h1>
           <h1 className="coin-price">{coinPrice ? `$${coinPrice}` : "...loading"}</h1>
         </div>
