@@ -165,15 +165,26 @@ handleGetBitcoin() {
       <div className="main-view-container">
         <MainHeader />
         <div className="main-view-content">
-          <div className="main-view-content-column">
-            {this.renderCoinPriceGraph()}
-            {this.renderHeatmap()}
-          </div>
-          <div className="main-view-content-column">
+          <div className="main-view-sentiment">
             {this.renderSentimentBarChart()}
             {this.renderSentimentPieChart()}
+            {this.renderSentimentPieChart()}
+          </div>
+
+          <div id="main-view-price">
+            {this.renderCoinPriceGraph()}
+          </div>
+
+          <div id='main-view-map-and-feed'>
+            <div id='main-view-map'>
+            {this.renderHeatmap()}
+            </div>
             {this.renderTwitterFeed()}
           </div>
+
+
+
+
         </div>
         <div className="main-view-footer">
         </div>
