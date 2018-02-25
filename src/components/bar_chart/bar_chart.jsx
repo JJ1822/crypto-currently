@@ -60,9 +60,9 @@ class BarChart extends Component {
 // ==================================================
 
   normalizeInput(watsonResponseObject) {
-    console.log("============================");
-    console.log(watsonResponseObject);
-    console.log(this);
+    // console.log("============================");
+    // console.log(watsonResponseObject);
+    // console.log(this);
     return [ Math.floor(watsonResponseObject.anger * 100),
      Math.floor(watsonResponseObject.disgust * 100),
      Math.floor(watsonResponseObject.fear * 100),
@@ -71,8 +71,8 @@ class BarChart extends Component {
   }
 
   componentWillMount() {
-    this.apiCall();
-    setInterval(this.apiCall, 1000 * 65 * 2)
+    // this.apiCall();
+    // setInterval(this.apiCall, 1000 * 15 * 1)
     // console.log(this.state.response);
     // console.log("it is working =======================");
     // console.log(this.state.response);
@@ -106,7 +106,10 @@ class BarChart extends Component {
       this.counter = this.counter % this.state.response.length;
       this.state.data.datasets[0].data = this.normalizeInput(this.state.response[this.counter]);
       this.counter += 1;
-      console.log(this.state.data.datasets[0].data);
+      console.log(this.state);
+      console.log(this.counter);
+
+      // console.log(this.state.data.datasets[0].data);
 
 
 
@@ -136,12 +139,14 @@ class BarChart extends Component {
   apiCall() {
     fetch('/tone')
         .then(response => {
-          console.log(response);
+          // console.log(response);
           return response.json();
         })
         .then((values) => {
-          console.log(values);
-          this.setState(this.state.response = values );
+          // console.log(values);
+          if (values) {
+            this.setState(this.state.response = values);
+          }
         });
         // console.log("it is working =======================");
         // console.log(this.state.response);

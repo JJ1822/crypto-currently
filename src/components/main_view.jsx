@@ -5,6 +5,7 @@ import {Component} from 'react';
 import MainHeader from './main_header';
 import BasicFeed from './twitter_feed/basic_feed';
 import BarChart from './bar_chart/bar_chart';
+import DoughnutChart from './doughnut/doughnut_chart';
 import TweetMap from './map/map';
 import PriceLineGraph from './price_line_graph/price_line_graph';
 // import CoinPriceGraph from './coin_price_graph';
@@ -128,7 +129,7 @@ handleGetBitcoin() {
     // FIXME: THIS IS ACTUALLY THE BAR CHART
     return (
       <div className="sentiment-chart-content">
-        CIRCLE CHART
+        <DoughnutChart/>
       </div>);
   }
 
@@ -157,8 +158,8 @@ handleGetBitcoin() {
 
   render() {
     const {coinName, coinTag, coinPrice} = this.state;
-    console.log(this.props);
-    console.log(this.state);
+    // console.log(this.props);
+    // console.log(this.state);
 
     return (
       <div className="main-view-container">

@@ -18,7 +18,7 @@ const basicFeed = () => {
           {
             !function(d,s,id){
               var js, fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-              console.log(s);
+              // console.log(s);
 
               if(!d.getElementById(id)){
                 js=d.createElement(s);js.id=id;
