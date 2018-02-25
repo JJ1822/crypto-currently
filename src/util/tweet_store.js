@@ -11,10 +11,9 @@ class TwitterStore {
   }
 
   recieveTweet(tweet) {
-    debugger
     this.newTweets.push(tweet);
     // console.log(this.newTweets);
-    if(Date.now() - this.clock > (1000 * 60 * 2)) {
+    if(Date.now() - this.clock > (1000 * 60 * 20)) {
       this.filterTweets();
       this.clock = Date.now();
     }
@@ -66,6 +65,8 @@ class TwitterStore {
        content_type: 'text/plain'
      }
     // console.log(input);
+
+    console.log(input);
   new ToneAnalysis().ToneAnalyser(formatted, (error, response) => this.tones = this.cleaner(response));
     // console.log(this.newTweets);
     this.filteredTweets = [];
