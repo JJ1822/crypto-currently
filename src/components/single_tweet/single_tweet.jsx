@@ -1,7 +1,49 @@
+import React from 'react';
+import {Component} from 'react';
+
+
+class SingleTweet extends Component {
+
+// ==================================================
+// Render
+// ==================================================
+  render() {
+    return (
+      <div className='main-tweet-box'>
+        <blockquote className="twitter-tweet"
+          data-cards="hidden"
+          data-theme="dark"
+          data-width="100%"
+          data-height="100%"
+          data-lang="en">
+          <a href="https://twitter.com/ForbesCrypto/status/967442398891651073?ref_src=twsrc%5Etfw"></a>
+        {
+          !function(d,s,id){
+            var js, fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+            // console.log(s);
+
+            if(!d.getElementById(id)){
+              js=d.createElement(s);js.id=id;
+              js.src=p+"://platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js,fjs);
+            }
+          }(document,"script","twitter-wjs")
+        }
+      </blockquote>
+    </div>
+
+
+
+    );
+  }
+
+}
+
+
+export default SingleTweet;
 
 
 
 
 
-
-<blockquote class="twitter-tweet" data-dnt="true" data-theme="dark"><p lang="en" dir="ltr">Bitcoin debate -- Warren Buffett bear vs. Winklevoss twins bull: <a href="https://t.co/TM38aLo9bT">https://t.co/TM38aLo9bT</a> <a href="https://t.co/1V5j3tFdfq">pic.twitter.com/1V5j3tFdfq</a></p>&mdash; Forbes Crypto (@ForbesCrypto) <a href="https://twitter.com/ForbesCrypto/status/967442398891651073?ref_src=twsrc%5Etfw">February 24, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+// <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

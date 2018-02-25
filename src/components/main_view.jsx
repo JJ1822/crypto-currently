@@ -7,6 +7,7 @@ import BasicFeed from './twitter_feed/basic_feed';
 import BarChart from './bar_chart/bar_chart';
 import DoughnutChart from './doughnut/doughnut_chart';
 import TweetMap from './map/map';
+import SingleTweet from './single_tweet/single_tweet';
 import PriceLineGraph from './price_line_graph/price_line_graph';
 // import CoinPriceGraph from './coin_price_graph';
 
@@ -156,6 +157,10 @@ handleGetBitcoin() {
     return <BasicFeed/>;
   }
 
+  renderSingleTweet() {
+    return <SingleTweet/>;
+  }
+
   render() {
     const {coinName, coinTag, coinPrice} = this.state;
     // console.log(this.props);
@@ -167,7 +172,7 @@ handleGetBitcoin() {
         <div className="main-view-content">
           <div className="main-view-sentiment">
             {this.renderSentimentBarChart()}
-            {this.renderSentimentPieChart()}
+            {this.renderSingleTweet()}
             {this.renderSentimentPieChart()}
           </div>
 
