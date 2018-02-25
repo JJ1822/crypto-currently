@@ -9,14 +9,14 @@ class StreamTwitter {
       access_token_secret: 'T2FY3HP3cOEDk6Z2CTEkceMFYDb4466Bd8LxZnklKxuU3'
     }
     this.client = new Twitter(params);
-    this.stream = this.client.stream('statuses/filter', {track: 'bitcoin, btc, crypto, cryptocurrency, blockchain, bitcoins, bitcointalk'});
+    this.stream = this.client.stream('statuses/filter', {track: 'bitcoin, btc'});
   }
 
   tweetStream(callback) {
-    this.stream.on('error', function() {
+    this.stream.on('error', function(error) {
       console.log(error);
     });
-    
+
     return this.stream.on('data', callback)
   }
 

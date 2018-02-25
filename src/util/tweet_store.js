@@ -1,5 +1,6 @@
 const StreamTwitter = require('./twitter');
 const ToneAnalysis = require('./tone_analyser');
+const emojiStrip = require('emoji-strip');
 
 class TwitterStore {
   constructor() {
@@ -7,13 +8,16 @@ class TwitterStore {
     this.clock = Date.now();
     this.filteredTweets = [];
     this.tones = [];
+    this.tweetIds = []
     new StreamTwitter().tweetStream((event) => this.recieveTweet(event));
   }
 
   recieveTweet(tweet) {
-    this.newTweets.push(tweet);
-    // console.log(this.newTweets);
-    if(Date.now() - this.clock > (1000 * 60 * 20)) {
+
+    if(tweet.extended_tweet && tweet.user.followers_count) {
+      this.newTweets.push(tweet);
+    }
+    if(Date.now() - this.clock > (1000 * 60)) {
       this.filterTweets();
       this.clock = Date.now();
     }
@@ -28,11 +32,6 @@ class TwitterStore {
     let toneCategories = toneResults.sentences_tone;
     for(let i = 0; i < toneCategories.length; i++) {
         let singleResult = {};
-        // console.log(toneCategories.length);
-        // console.log("--------------------------");
-        // console.log(i);
-        // console.log("--------------------------");
-        // console.log(toneCategories[i].tone_categories[0].tones);
         let arr = toneCategories[i].tone_categories[0].tones;
       for(let j = 0; j < arr.length; j++) {
 
@@ -48,29 +47,23 @@ class TwitterStore {
 
   filterTweets() {
     this.filteredTweets = this.newTweets.sort((a,b) => b.user.followers_count - a.user.followers_count).slice(0,80);
-    // console.log(this.filteredTweets.slice(0,15).map(t => t.user.followers_count));
-    // throw "done";
-    // remover punc and seperate by period
-    // console.log(this.filteredTweets[0].text);
-    // console.log(this.filteredTweets);
-    let input = "";
-    let text;
-    for(let i = 0; i < this.filteredTweets.length; i++) {
-      if(this.filteredTweets[i].extended_tweet !== undefined) {
-        input += (this.filteredTweets[i].extended_tweet.full_text.replace(/[.,\/#!|$%\^&\*@;:{}=\-_`~()?"]/g,"").toLowerCase() + ".");
-      }
-    }
-    const formatted = {
-       text: input.replace(/\s+/g, " "),
-       content_type: 'text/plain'
-     }
-    // console.log(input);
 
-    console.log(input);
+      this.tweetIds = this.filteredTweets.map(t => t.id);
+      let arr = this.filteredTweets.map(t => t.extended_tweet.full_text);
+
+      let newTweets = arr.map(el => el.replace(/[^a-zA-Z ]/g, ""))
+      newTweets = newTweets.join(". ")
+
+    const formatted = {
+      text: newTweets,
+      content_type: 'text/plain'
+     }
+
   new ToneAnalysis().ToneAnalyser(formatted, (error, response) => this.tones = this.cleaner(response));
-    // console.log(this.newTweets);
+  
     this.filteredTweets = [];
     this.newTweets = [];
+
   }
 }
 

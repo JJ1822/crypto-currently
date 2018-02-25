@@ -22,6 +22,7 @@ class PriceLineGraph extends Component {
   getData() {
     const {prices} = this.props;
 
+
     return {
       // TODO: This should update with minutes.
       labels: this.getLabels(),
@@ -53,7 +54,7 @@ class PriceLineGraph extends Component {
 
   getOptions() {
     const {prices} = this.props;
-
+    console.log(this.props);
     return {
       scales: {
         yAxes: [{
