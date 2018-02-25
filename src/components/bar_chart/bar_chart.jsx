@@ -106,8 +106,8 @@ class BarChart extends Component {
       this.counter = this.counter % this.state.response.length;
       this.state.data.datasets[0].data = this.normalizeInput(this.state.response[this.counter]);
       this.counter += 1;
-      console.log(this.state);
-      console.log(this.counter);
+      // console.log(this.state);
+      // console.log(this.counter);
 
       // console.log(this.state.data.datasets[0].data);
 
