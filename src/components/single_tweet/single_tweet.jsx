@@ -14,6 +14,7 @@ class SingleTweet extends Component {
           data-cards="hidden"
           data-width="100%"
           data-height="100%"
+          data-theme="dark"
           data-lang="en">
           <a href="https://twitter.com/ForbesCrypto/status/967442398891651073?ref_src=twsrc%5Etfw"></a>
         {
