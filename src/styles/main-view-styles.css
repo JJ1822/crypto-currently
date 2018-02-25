@@ -181,6 +181,9 @@
 
 .heat-map-content {
   /* Temporary styling for placeholding, change once feature is implemented */
+  display: flex;
+  align-content: center;
+  margin-top: 50px;
   background-color: var(--lightGrey);
   height: 300px;
   border-radius: 5px;
@@ -209,3 +212,47 @@
   padding: 10px;
   height: 92%;
 }
+
+
+
+
+/* ----------MAP STUFF---------- */
+
+#map {
+  color: white;
+  /* position: absolute; */
+  /* bottom: 0; */
+  /* margin-left: 140px; */
+  /* margin-top: 100px; */
+  /* overflow: hidden; */
+}
+
+#map svg {
+  /* border: 1px solid #aaa; */
+  /* align-self: center; */
+  margin: auto;
+}
+
+#map .land {
+  fill: #eee;
+
+  /* fill: var(--orange); */
+}
+
+#map .boundary {
+  fill: none;
+  stroke: #aaa;
+  stroke-width: .5px;
+}
+
+#map .point {
+  opacity: 0.3;
+}
+
+#map .radar-ping {
+  fill: none;
+  /* fill: var(--orange); */
+}
+
+
+/* ----------MAP STUFF---------- */

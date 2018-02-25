@@ -5,6 +5,7 @@ import {Component} from 'react';
 import MainHeader from './main_header';
 import BasicFeed from './twitter_feed/basic_feed';
 import BarChart from './bar_chart/bar_chart';
+import TweetMap from './map/map';
 import PriceLineGraph from './price_line_graph/price_line_graph';
 // import CoinPriceGraph from './coin_price_graph';
 
@@ -143,7 +144,11 @@ handleGetBitcoin() {
 
   renderHeatmap() {
     // TODO: Create heatmap for tweet locations.
-    return <div className="heat-map-content" />;
+    return (
+      <div className="heat-map-content" >
+        <TweetMap/>
+      </div>
+      )
   }
 
   renderTwitterFeed() {
