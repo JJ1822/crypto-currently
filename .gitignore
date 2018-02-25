@@ -17,6 +17,7 @@
 .env.production.local
 twitter.js
 tone_analyser.js
+twitter-credentials.js
 
 npm-debug.log*
 yarn-debug.log*
