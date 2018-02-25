@@ -30,7 +30,7 @@ function createTwitterConnection(twitterCredentials, boundingBox, payloadCallbac
         let lon = tweet.place.bounding_box.coordinates[0][0][1];
         let lat2 = tweet.place.bounding_box.coordinates[0][2][0];
         let lon2 = tweet.place.bounding_box.coordinates[0][1][1];
-        console.log(tweet.user.location);
+        // console.log(tweet.user.location);
         console.log(tweet.text);
         console.log(lat, lon, lat2, lon2);
         let corlon = lat + ((lat2 - lat) / 2)
