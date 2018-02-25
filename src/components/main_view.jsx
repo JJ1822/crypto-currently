@@ -41,7 +41,7 @@ constructor(props) {
 componentWillMount() {
   this.setState({
     // Default value is defined in MainViewContainer.
-    intervalTime: 2000,
+    intervalTime: 4000,
     coinName: this.props.coinName,
     coinTag: this.props.coinTag,
     coinPrice: this.props.coinPrice,

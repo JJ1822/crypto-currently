@@ -30,6 +30,10 @@ const cleaner = (toneResults) => {
      res.send(store.tones);
    });
 
+   app.get('/api/tweetids', (req, res) => {
+     res.send(store.tweetIds);
+   });
+
 
 
 
