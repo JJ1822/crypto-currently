@@ -9,13 +9,19 @@ class BarChart extends Component {
 // ==================================================
   constructor(props){
     super(props);
-    this.dataVals = [0, 0, 0, 0, 0];
-
+    // this.dataVals = [50, 50, 50, 50, 50];
+    this.counter = 0;
     this.state = {
+      response: [{
+        anger: 0.023926,
+        joy: 0.683256,
+        disgust: 0.056478,
+        fear: 0.142307,
+        sadness: 0.118776 }],
       data: {
         labels: ["Anger", "Joy", "Disgust", "Fear", "Sadness"],
         datasets: [{
-            data: this.dataVals,
+            data: [50,50,50,50,50],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -54,40 +60,91 @@ class BarChart extends Component {
 // ==================================================
 
   normalizeInput(watsonResponseObject) {
-    this.state.data.datasets[0].data[0] = Math.floor(watsonResponseObject.anger * 100);
-    this.state.data.datasets[0].data[1] = Math.floor(watsonResponseObject.disgust * 100);
-    this.state.data.datasets[0].data[2] = Math.floor(watsonResponseObject.fear * 100);
-    this.state.data.datasets[0].data[3] = Math.floor(watsonResponseObject.joy * 100);
-    this.state.data.datasets[0].data[4] = Math.floor(watsonResponseObject.sadness * 100);
+    console.log("============================");
+    console.log(watsonResponseObject);
+    console.log(this);
+    return [ Math.floor(watsonResponseObject.anger * 100),
+     Math.floor(watsonResponseObject.disgust * 100),
+     Math.floor(watsonResponseObject.fear * 100),
+     Math.floor(watsonResponseObject.joy * 100),
+     Math.floor(watsonResponseObject.sadness * 100)];
   }
 
-  componentDidMount() {
-    fetch('/api/tones')
-      .then(res => res)
-      .then(tone => this.setState({ tone: tone }));
-      console.log(this);
-  }
+  componentWillMount() {
+    this.apiCall();
+    setInterval(this.apiCall, 1000 * 65 * 2)
+    // console.log(this.state.response);
+    // console.log("it is working =======================");
+    // console.log(this.state.response);
+    // fetch('/tone')
+    //     .then(response => {
+    //       console.log(response);
+    //       return response.json();
+    //     })
+    //     .then((values) => {
+    //       console.log(values);
+    //       this.setState(this.state.response = values );
+    //     });
+    //        console.log(this);
+    }
 
+    componentDidMount() {
+
+    }
+
+  // callApi  = async () => {
+  //     const response = await fetch('/api/tones');
+  //     const body = await response.json();
+  //     if (response.status !== 200) throw Error(body.message);
+  //     return body;
+  //   };
 // ==================================================
 // Lifecycle
 // ==================================================
 
   componentWillReceiveProps(newProps){
+      this.counter = this.counter % this.state.response.length;
+      this.state.data.datasets[0].data = this.normalizeInput(this.state.response[this.counter]);
+      this.counter += 1;
+      console.log(this.state.data.datasets[0].data);
+
+
 
     // Randomly changing
-    // this.state.data.datasets[0].data = [Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10), Math.floor(Math.random()*10)];
-    // console.log(this.state.data.datasets[0].data);
+    // console.log("======================");
+    // console.log(this.state.response[0]);
+    // console.log(this);
+    // console.log("======================");
+    // console.log(this.state.response[1]);
+    // console.log(this);
+    // //
+    //
+    //
 
 
-    let wts1 = newProps.watsonResponseObject;
-    wts1 = {
-      anger: 0.023926,
-      joy: 0.683256,
-      disgust: 0.056478,
-      fear: 0.142307,
-      sadness: 0.118776 };
+    // let wts1 = newProps.watsonResponseObject;
+    // wts1 = {
+    //   anger: 0.023926,
+    //   joy: 0.683256,
+    //   disgust: 0.056478,
+    //   fear: 0.142307,
+    //   sadness: 0.118776 };
 
-    this.normalizeInput(wts1);
+    // this.normalizeInput(wts1);
+  }
+
+  apiCall() {
+    fetch('/tone')
+        .then(response => {
+          console.log(response);
+          return response.json();
+        })
+        .then((values) => {
+          console.log(values);
+          this.setState(this.state.response = values );
+        });
+        // console.log("it is working =======================");
+        // console.log(this.state.response);
   }
 
 // ==================================================

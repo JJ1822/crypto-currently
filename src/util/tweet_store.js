@@ -14,7 +14,7 @@ class TwitterStore {
     debugger
     this.newTweets.push(tweet);
     // console.log(this.newTweets);
-    if(Date.now() - this.clock > (1000 * 60)) {
+    if(Date.now() - this.clock > (1000 * 60 * 2)) {
       this.filterTweets();
       this.clock = Date.now();
     }
