@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
 
-import {requestCoinPrice} from '../actions/coin_actions';
+import {requestCoinPrice, requestPastCoinPrices} from '../actions/coin_actions';
 
 // Components
 import MainView from './main_view';
@@ -9,14 +9,9 @@ import MainView from './main_view';
 
 const mapStateToProps = (state, ownProps) => {
   const coinPrice = state.coin.amount ? parseFloat(state.coin.amount) : null;
-
-  let coinPriceList = [];
-
-  for (let i = 0; i < 16; i++) {
-    // Initialize price list to have all zeros to enable animation when
-    // graph loads data.
-    coinPriceList = coinPriceList.concat(0);
-  }
+  let nullArray = []
+  for (let i = 0; i < 30; i++) {nullArray.push(0)};
+  const coinPriceList = state.coin.prices ? state.coin.prices : nullArray;
 
   return ({
     // Default to Bitcoin.
@@ -28,11 +23,12 @@ const mapStateToProps = (state, ownProps) => {
     // make sure it doesn't error and set the default to 0 before the
     // state loads the coins.
     coinPrice: coinPrice,
-    coinPriceList,
+    coinPriceList: coinPriceList,
   })
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  requestPastCoinPrices: () => dispatch(requestPastCoinPrices()),
   requestCoinPrice: (coin_tag) => dispatch(requestCoinPrice(coin_tag))
 })
 

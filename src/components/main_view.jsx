@@ -25,6 +25,7 @@ constructor(props) {
   // this.counter = 0;
 
   this.props.requestCoinPrice("BTC");
+  this.props.requestPastCoinPrices();
 
   this.state = {
     // Default value is defined in MainViewContainer.
@@ -44,7 +45,11 @@ constructor(props) {
 componentWillMount() {
   this.setState({
     // Default value is defined in MainViewContainer.
+<<<<<<< HEAD
     intervalTime: 9000,
+=======
+    intervalTime: 2000,
+>>>>>>> a27d3ab921c70a3b81d4eebbc747366ea95614eb
     coinName: this.props.coinName,
     coinTag: this.props.coinTag,
     coinPrice: this.props.coinPrice,
@@ -74,30 +79,19 @@ componentWillUnmount() {
 // ==================================================
 // Methods
 // ==================================================
-updatePriceList(newPrice) {
-  if (this.state.coinPriceList.every((x) => (x === 0))) {
-    let priceList = []
-    // Initialize with 16 points that all just show price at the time the
-    // component was loaded; this will animate graph upwards.
-    for (let i = 0; i < 16; i++) {
-      priceList = priceList.concat(newPrice);
-    }
-
-    return priceList;
-
-  } else {
-    return this.state.coinPriceList.slice(1).concat(newPrice);
-  }
-}
+// updatePriceList(newPrice) {
+//   return this.state.coinPriceList.slice(1).concat(newPrice);
+// }
 
 updateCoins() {
+  this.props.requestPastCoinPrices();
   this.props.requestCoinPrice("BTC");
 
   const newPrice = this.props.coinPrice;
 
   this.setState({
     coinPrice: newPrice,
-    coinPriceList: this.updatePriceList(newPrice),
+    coinPriceList: this.props.coinPriceList,
   });
 }
 
@@ -140,7 +134,7 @@ handleGetBitcoin() {
     return (
       <div className="price-graph-content">
         <div className="price-graph-header">
-          {/*<h1 className="coin-name">{coinName}</h1>*/}
+          <h1 className="coin-name">{coinName}</h1>
           <h1 className="coin-tag">{coinTag}</h1>
           <h1 className="coin-price">{coinPrice ? `$${coinPrice}` : "...loading"}</h1>
         </div>
@@ -194,7 +188,7 @@ handleGetBitcoin() {
 
   render() {
     const {coinName, coinTag, coinPrice} = this.state;
-    // console.log(this.props);
+    console.log(this.props);
     // console.log(this.state);
 
     return (
@@ -217,9 +211,6 @@ handleGetBitcoin() {
             </div>
             {this.renderTwitterFeed()}
           </div>
-
-
-
 
         </div>
         <div className="main-view-footer">
