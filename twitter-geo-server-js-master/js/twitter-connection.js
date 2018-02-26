@@ -11,7 +11,7 @@ function createTwitterConnection(twitterCredentials, boundingBox, payloadCallbac
   function startFilteringTweets() {
    twitterConnection.stream(
       'statuses/filter',
-      {track: "'bitcoin, btc, ltc, xrp, xlm, oes, xmr, xem, etc, usdt, tether, nano, bnb, bcn, eos, sia, monero, dash, Zcash, steller, NEO, bitcoin cash, eth, crypto, cryptocurrency, smartcontract, steem, lisk, ripple, blockchain, trading, 特, money, ico, token, cryptolife, cryptocurrencies, mining, bitx, ethereum, litecoin, coinbase, bitcoins, tokensale, decentralized, bitcointalk, cryptomemes, cryptoporn, tokens, altcoin, BTC, ETH, LTC '"},
+      {track: "'bitcoin, btc, ltc, xrp, xlm, oes, xmr, xem, etc, usdt, tether, nano, bnb, bcn, eos, sia, monero, dash, Zcash, steller, NEO, NEM, omg, bitcoin cash, eth, crypto, cryptocurrency, smartcontract, steem, lisk, ripple, blockchain, trading, 特, money, ico, token, cryptolife, cryptocurrencies, mining, bitx, ethereum, litecoin, coinbase, bitcoins, tokensale, decentralized, bitcointalk, cryptomemes, cryptoporn, tokens, altcoin, BTC, ETH, LTC '"},
       twitterStreamHandler
     );
   }
