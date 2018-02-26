@@ -32,6 +32,7 @@ class DoughnutChart extends Component {
       }
 
       this.options = {
+        // maintainAspectRatio: false,
         cutoutPercentage: 50,
         max: 100
       }

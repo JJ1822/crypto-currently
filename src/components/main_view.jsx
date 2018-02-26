@@ -45,7 +45,7 @@ constructor(props) {
 componentWillMount() {
   this.setState({
     // Default value is defined in MainViewContainer.
-    intervalTime: 9000,
+    intervalTime: 3000,
     coinName: this.props.coinName,
     coinTag: this.props.coinTag,
     coinPrice: this.props.coinPrice,
@@ -191,6 +191,9 @@ handleGetBitcoin() {
       <div className="main-view-container">
         <MainHeader />
         <div className="main-view-content">
+          <div className='section-titles'>
+            <h1 >SENTIMENT ANALYSIS</h1>
+          </div>
           <div className="main-view-sentiment">
             {this.renderSentimentBarChart()}
             {this.renderSingleTweet()}
@@ -201,6 +204,10 @@ handleGetBitcoin() {
             {this.renderCoinPriceGraph()}
           </div>
 
+
+          <div className='section-titles'>
+            <h1>LIVE ACTIVITY</h1>
+          </div>
           <div id='main-view-map-and-feed'>
             <div id='main-view-map'>
             {this.renderHeatmap()}

@@ -13,6 +13,8 @@
   --orange: rgb(236, 114, 119);
   /* HEX #f85557 */
   --red: rgb(248, 85, 87);
+  --chartBlue: rgba(94, 94, 94, 0.0);
+  --headerBlue: rgb(54, 162, 235);
 }
 
 
@@ -27,8 +29,9 @@
   height: 75px;
   /* background-color: var(--slate-blue); */
   /* background-color: transparent; */
-  background-color: rgba(34, 34, 34, 0.90);
-  border-bottom: 1px solid rgb(122, 122, 122);
+  /* background-color: rgba(34, 34, 34, 0.90); */
+  background-color: var(--black);
+  /* border-bottom: 1px solid rgb(122, 122, 122); */
 
 
   /* font-family: 'Fredericka the Great', cursive; */
@@ -42,7 +45,8 @@
   padding: 8px;
 
   /* color: var(--light-blue); */
-  color: var(--red);
+  /* color: var(--red); */
+  color: var(--headerBlue);
   border: 2px solid #fff;
 }
 
@@ -53,7 +57,8 @@
   color: #888;
   font-family: 'Gruppo', cursive;
   padding-left: 5px;
-  border-left: 1px solid var(--red);
+  /* border-left: 1px solid var(--red); */
+  border-left: 1px solid var(--headerBlue);
 }
 
 .main-view-container {
@@ -63,26 +68,45 @@
   padding-top: 120px;
   padding-bottom: 120px;
   background-color: var(--black);
-  /* background-color: var(--darkestGrey); */
+  background-color: var(--darkestGrey);
+  /* background-color: #fff; */
   color: white;
 }
 
 #main-view-price{
   overflow: hidden;
-  /* margin-top: 20px; */
-  /* margin-bottom: 20px; */
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border: 1px solid #444;
+  border: 1px solid var(--chartBlue);
+  /* background-color: var(--chartBlue); */
+  border-radius: 15px;
+}
+
+#main-view-price div canvas {
+  /* border: 2px solid red; */
+  height: 400px;
 }
 
 #main-view-map-and-feed{
-  margin-top: 8px;
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
+
+  /* border: 1px solid #444; */
+  border: 1px solid var(--chartBlue);
+  border-radius: 15px;
 }
 
 .main-view-sentiment {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  /* border: 1px solid #444; */
+  border: 1px solid var(--chartBlue);
+  overflow: hidden;
+  border-radius: 15px;
 }
 
 .main-view-content {
@@ -121,7 +145,7 @@
 .price-graph-header {
   display: flex;
   /* padding: 15px; */
-  color: #fff;
+  color: #888;
   /* font-size: 30px; */
   width: 100%;
   justify-content: center;
@@ -146,7 +170,7 @@
   /* Temporary styling for placeholding, change once feature is implemented */
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 30px;
   /* margin-bottom: 20px; */
   /* border: 1px solid rgb(102, 117, 126); */
 
@@ -171,7 +195,7 @@
   /* Temporary styling for placeholding, change once feature is implemented */
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 30px;
 
   /* test */
   /* border: 2px solid green;  */
@@ -200,6 +224,8 @@
   display: flex;
   justify-content: center;
   color: #fff;
+  color: rgba(54, 162, 235, 1);
+  color: #888;
   /* color: rgb(54, 162, 235); */
 
   margin-bottom: 25px;
@@ -221,9 +247,13 @@
 
   /* test */
   /* border: 2px solid green; */
+  border: 1px solid #444;
+  border: 1px solid var(--chartBlue);
+  border-top: none;
+  border-bottom: none;
 
   /* background-color: var(--lightGrey); */
-  border-radius: 5px;
+  /* border-radius: 5px; */
   overflow: scroll;
 }
 
@@ -268,7 +298,7 @@
   /* background-color: var(--light-blue); */
   /* background-color: var(--lightGrey); */
   width: 310px;
-  height: 300px;
+  height: 320px;
   border-radius: 5px;
   margin-right: 30px;
 
@@ -309,12 +339,16 @@
   /* fill: #eee; */
 
   fill: #888;
+  fill: none;
+  /* fill: rgba(54, 162, 235, 1); */
 }
 
 #map .boundary {
   fill: none;
   /* stroke: #aaa; */
-  stroke: var(--lightGrey);
+  /* stroke: var(--lightGrey); */
+  /* stroke: rgba(54, 162, 235, 0.8); */
+  stroke: #666;
   stroke-width: .5px;
 }
 
@@ -327,3 +361,18 @@
   /* fill: var(--orange); */
 }
 /* -------------------- */
+
+
+
+.section-titles {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  padding: 10px;
+  background-color: #444;
+  color: #ccc;
+  border-radius: 5px;
+
+  letter-spacing: 2px;
+  /* border: 1px solid red; */
+}
