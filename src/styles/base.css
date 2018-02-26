@@ -1,0 +1,41 @@
+html, body, div, span, h1, h2, h3, h4, h5, input,
+h6, p, blockquote, pre, b, u, i, ol, ul, li,
+form, label, embed, footer, header, button, nav, section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+
+  -moz-transition: all .2s ease-in;
+  -o-transition: all .2s ease-in;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+
+
+  /* font-family: 'Quicksand', sans-serif; */
+  font-family: 'Montserrat', sans-serif;
+  /* background-color: rgb(34, 34, 34); */
+}
+
+html, body {
+  /* background-color: rgb(34, 34, 34); */
+}
+
+footer, header, menu, nav, section {
+ 	display: block;
+}
+
+body {
+ 	line-height: 1;
+}
+
+ol, ul {
+ 	list-style: none;
+}

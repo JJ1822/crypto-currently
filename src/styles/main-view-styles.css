@@ -1,0 +1,329 @@
+:root {
+  --light-blue: #93beea;
+  --lavender: #8d8cd7;
+  --indigo: #2d4093;
+  --slate-blue: #18415d;
+  --black: #000518;
+
+  --lightGrey: #444;
+  --darkGrey: #2f323a;
+  --darkestGrey: rgb(34, 34, 34);
+
+  /* HEX #ec7277 */
+  --orange: rgb(236, 114, 119);
+  /* HEX #f85557 */
+  --red: rgb(248, 85, 87);
+}
+
+
+.main-header-content {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  top: 0;
+  padding-left: 40px;
+  width: 100%;
+  z-index: 100;
+  height: 75px;
+  /* background-color: var(--slate-blue); */
+  /* background-color: transparent; */
+  background-color: rgba(34, 34, 34, 0.90);
+  border-bottom: 1px solid rgb(122, 122, 122);
+
+
+  /* font-family: 'Fredericka the Great', cursive; */
+}
+
+.main-header-logo {
+  font-family: 'Fredericka the Great', cursive;
+  /* font-family: 'Gruppo', cursive; */
+
+  font-size: 30px;
+  padding: 8px;
+
+  /* color: var(--light-blue); */
+  color: var(--red);
+  border: 2px solid #fff;
+}
+
+.main-header-title {
+  /* font-size: 40px; */
+  margin-left: 20px;
+  font-size: 13px;
+  color: #888;
+  font-family: 'Gruppo', cursive;
+  padding-left: 5px;
+  border-left: 1px solid var(--red);
+}
+
+.main-view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background-color: var(--black);
+  /* background-color: var(--darkestGrey); */
+  color: white;
+}
+
+#main-view-price{
+  overflow: hidden;
+  /* margin-top: 20px; */
+  /* margin-bottom: 20px; */
+}
+
+#main-view-map-and-feed{
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-view-sentiment {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.main-view-content {
+  /* display: flex; */
+
+  /* main dash width */
+
+  width: 1000px;
+  /* border: 2px solid green; */
+}
+
+.main-view-content-column {
+  display: flex;
+  flex-direction: column;
+  /* width: 800px; */
+}
+
+.main-view-content-column:last-of-type {
+  width: 300px;
+  margin-left: 30px;
+}
+
+/* Coin price graph ----------------------------------------  */
+
+.price-graph-content {
+  /* Temporary styling for placeholding, change once feature is implemented */
+  /* display: flex; */
+  flex-direction: column;
+  /* height: 300px; */
+  /* background-color: var(--lightGrey); */
+  border-radius: 5px;
+  margin-right: 30px;
+  margin-top: 30px;
+}
+
+.price-graph-header {
+  display: flex;
+  /* padding: 15px; */
+  color: #fff;
+  /* font-size: 30px; */
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+.coin-name {
+  margin-right: 10px;
+}
+
+.coin-tag {
+  margin-right: 10px;
+}
+
+.coin-price {
+
+}
+
+/* Sentiment PIE chart ----------------------------------------  */
+
+.sentiment-chart-content {
+  /* Temporary styling for placeholding, change once feature is implemented */
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  /* margin-bottom: 20px; */
+  /* border: 1px solid rgb(102, 117, 126); */
+
+  /* background-color: var(--darkestGrey); */
+  /* min-width: 300px; */
+  height: 220px;
+  border-radius: 5px;
+  margin-right: 30px;
+  margin-bottom: 12px;
+}
+
+.sentiment-chart-content path,
+	.sentiment-chart-content line {
+	  fill: none;
+	  stroke: #000;
+	  shape-rendering: crispEdges;
+	}
+
+/* Sentiment BAR chart ----------------------------------------  */
+
+.sentiment-bar-chart-content {
+  /* Temporary styling for placeholding, change once feature is implemented */
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+
+  /* test */
+  /* border: 2px solid green;  */
+
+  /* background-color: var(--lightGrey); */
+  /* border: 1px solid rgb(102, 117, 126); */
+  /* border-bottom: 1px solid #000; */
+  /* min-width: 300px; */
+  height: 220px;
+  border-radius: 5px;
+}
+
+.sentiment-bar-chart-content path,
+	.sentiment-bar-chart-content line {
+	  fill: none;
+	  stroke: #000;
+	  shape-rendering: crispEdges;
+	}
+
+.sentiment-bar-chart-content div canvas {
+  /* height: 500px; */
+  /* background-color: red; */
+}
+
+.chart-title {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  /* color: rgb(54, 162, 235); */
+
+  margin-bottom: 25px;
+  /* border: 1px solid red; */
+  /* background-color: #888; */
+  /* background-color: rgb(54, 162, 235); */
+  font-size: 16px;
+  /* border-radius: 5px; */
+}
+
+
+.main-tweet-box {
+  display: flex;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 340px;
+
+  height: 318px;
+
+  /* test */
+  /* border: 2px solid green; */
+
+  /* background-color: var(--lightGrey); */
+  border-radius: 5px;
+  overflow: scroll;
+}
+
+.main-tweet-simple {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  /* border: 2px solid green; */
+
+}
+
+.main-tweet-simple p {
+  margin: auto;
+  /* font-size: 16px; */
+  /* font-size: 1.2em; */
+  line-height: 1.5;
+  /* text-align: left; */
+  /* margin-top: 25%; */
+  /* color: #888; */
+  /* border: 2px solid red; */
+
+}
+
+/* Heatmap ------------------------------------------------  */
+
+.heat-map-content {
+  /* Temporary styling for placeholding, change once feature is implemented */
+  display: flex;
+  align-content: center;
+  /* margin-top: 20px; */
+  /* margin-right: 30px; */
+  /* background-color: var(--lightGrey); */
+  height: 300px;
+  border-radius: 5px;
+}
+
+/* Twitter Feed -------------------------------------------  */
+
+.twitter-feed-content {
+  /* Temporary styling for placeholding, change once feature is implemented */
+  /* background-color: var(--light-blue); */
+  /* background-color: var(--lightGrey); */
+  width: 310px;
+  height: 300px;
+  border-radius: 5px;
+  margin-right: 30px;
+
+}
+
+
+#twitter-feed {
+  /* width: 50%; */
+  /* width: 30%; */
+  /* border: 5px solid #444; */
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 10px;
+  height: 92%;
+}
+
+
+
+
+/* ----------MAP STUFF---------- */
+
+#map {
+  color: white;
+  /* position: absolute; */
+  /* bottom: 0; */
+  /* margin-left: 140px; */
+  /* margin-top: 100px; */
+  /* overflow: hidden; */
+}
+
+#map svg {
+  /* border: 1px solid #aaa; */
+  /* align-self: center; */
+  margin: auto;
+}
+
+#map .land {
+  /* fill: #eee; */
+
+  fill: #888;
+}
+
+#map .boundary {
+  fill: none;
+  /* stroke: #aaa; */
+  stroke: var(--lightGrey);
+  stroke-width: .5px;
+}
+
+#map .point {
+  opacity: 0.5;
+}
+
+#map .radar-ping {
+  fill: none;
+  /* fill: var(--orange); */
+}
+/* -------------------- */
