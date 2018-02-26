@@ -31,7 +31,7 @@
     "webpack": "^3.11.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start & npm run map & npm run server",
     "map": "node twitter-geo-server-js-master/server.js",
     "server": "node src/util/server.js",
     "build": "react-scripts build",
