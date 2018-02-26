@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/twitter-geo-server-js-master/node_modules
 
 # testing
 /coverage
