@@ -22,7 +22,7 @@ class MainView extends Component {
 // ==================================================
 constructor(props) {
   super(props);
-  this.counter = 0;
+  // this.counter = 0;
 
   this.props.requestCoinPrice("BTC");
   this.props.requestPastCoinPrices();
@@ -33,7 +33,7 @@ constructor(props) {
     coinName: this.props.coinName,
     coinPrice: this.props.coinPrice,
     coinPriceList: this.props.coinPriceList,
-    tweetObj: [1]
+    tweetObj: {tweetId: "967934564336357377", userId: "129935623"}
   };
 
   this.updateCoins = this.updateCoins.bind(this);
@@ -45,7 +45,11 @@ constructor(props) {
 componentWillMount() {
   this.setState({
     // Default value is defined in MainViewContainer.
+<<<<<<< HEAD
+    intervalTime: 9000,
+=======
     intervalTime: 2000,
+>>>>>>> a27d3ab921c70a3b81d4eebbc747366ea95614eb
     coinName: this.props.coinName,
     coinTag: this.props.coinTag,
     coinPrice: this.props.coinPrice,
@@ -63,8 +67,8 @@ componentDidMount() {
 }
 
 componentWillReceiveProps(newProps) {
-  this.counter = this.counter % this.state.tweetObj.length;
-  this.counter += 1;
+  // this.counter = this.counter % this.state.tweetObj.length;
+  // this.counter += 1;
 
 }
 
@@ -162,7 +166,6 @@ handleGetBitcoin() {
   }
 
   renderHeatmap() {
-    // TODO: Create heatmap for tweet locations.
     return (
       <div className="heat-map-content" >
         <TweetMap/>
@@ -175,10 +178,12 @@ handleGetBitcoin() {
   }
 
   renderSingleTweet() {
-    console.log('TWEET OBJECT IN MAIN', this.state.tweetObj[this.counter]);
-    console.log('MAIN COUNTER', this.counter);
-
-    return <SingleTweet tweetId={this.state.tweetObj[this.counter].tweetId} userId={this.state.tweetObj[this.counter].userId}/>;
+    // console.log('MAIN COUNTER', this.counter);
+    if (this.state.tweetObj[17]) {
+      return <SingleTweet tweetObj={this.state.tweetObj} tweetId={this.state.tweetObj[17].tweetId} userId={this.state.tweetObj[17].userId}/>;
+    } else {
+      return null;
+    }
   }
 
   render() {
