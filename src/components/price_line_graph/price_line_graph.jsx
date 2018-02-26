@@ -31,7 +31,7 @@ class PriceLineGraph extends Component {
           label: 'Bitcoin Price',
           fill: true,
           lineTension: 0.1,
-          backgroundColor: 'rgba(75,192,192,0.4)',
+          backgroundColor: 'rgba(75,192,192,0.1)',
           borderColor: 'rgba(75,192,192,1)',
           borderCapStyle: 'butt',
           borderDash: [],
@@ -54,7 +54,7 @@ class PriceLineGraph extends Component {
 
   getOptions() {
     const {prices} = this.props;
-    console.log(this.props);
+    // console.log(this.props);
     return {
       scales: {
         yAxes: [{
@@ -72,7 +72,7 @@ class PriceLineGraph extends Component {
 // ==================================================
   render() {
     return (
-      <div>
+      <div >
         <Line
           data={this.getData()}
           options={this.getOptions()}
