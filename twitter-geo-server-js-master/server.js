@@ -17,8 +17,8 @@ function getServerSettingsFromCommandLine() {
 function createServer(settings) {
   var createTwitterConnection = require('./js/twitter-connection');
   var createWebSocketServer = require('./js/web-socket-server');
-  var twitterCredentials = require('./' + settings.twitterCredentialsFilename);
-  createTwitterConnection(twitterCredentials, settings.boundingBox, broadcastPayload);
+  var twitterCredentials = require('./twitter-credentials');
+  createTwitterConnection(twitterCredentials.mapKey, settings.boundingBox, broadcastPayload);
   createWebSocketServer(settings.port, serverName(), webSocketConnectionHandler);
 }
 

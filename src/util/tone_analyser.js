@@ -3,12 +3,8 @@ var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 class ToneAnalysis {
 
       constructor() {
-        const params = {
-          username: "483e3b1c-3bc9-4c02-8efd-68901ac76083",
-          password: "gcksLub2bNzs",
-          version_date: '2017-02-27'
-        }
-       this.Analyzer = new ToneAnalyzerV3(params);
+        const params = require('../../twitter-geo-server-js-master/twitter-credentials');
+        this.Analyzer = new ToneAnalyzerV3(params.watsonTone);
       }
 
       ToneAnalyser(input, callback) {
