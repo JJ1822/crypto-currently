@@ -56,11 +56,20 @@ class PriceLineGraph extends Component {
     const {prices} = this.props;
     // console.log(this.props);
     return {
+      maintainAspectRatio: false,
       scales: {
         yAxes: [{
+          gridLines: {
+              display:false
+          },
           ticks: {
             suggestedMin: (Math.min.apply(Math, prices) - 10),
             suggestedMax: (Math.max.apply(Math, prices) + 10),
+          }
+        }],
+        xAxes: [{
+          gridLines: {
+              display:false
           }
         }]
       }

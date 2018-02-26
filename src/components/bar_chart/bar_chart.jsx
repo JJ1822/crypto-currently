@@ -39,14 +39,19 @@ class BarChart extends Component {
       }
     }
     this.options = {
+      // maintainAspectRatio: false,
       scales: {
         yAxes: [{
+          angleLines: {
+            display: false
+          },
           gridLines: {
               display:false
           },
           ticks: {
             beginAtZero:true,
-            // max: 100
+            display: false,
+            max: 100
           }
         }],
         xAxes: [{
