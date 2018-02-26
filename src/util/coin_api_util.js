@@ -11,7 +11,7 @@ export const fetchCoinPrice = (coin_tag) => (
 export const fetchPastCoinPrices = () => (
   $.ajax({
     type: 'GET',
-    url: `https://min-api.cryptocompare.com/data/histohour?fsym=BTC&tsym=USD&limit=60&aggregate=3&e=CCCAGG`,
+    url: `https://min-api.cryptocompare.com/data/histominute?fsym=BTC&tsym=USD&limit=60&aggregate=3&e=CCCAGG`,
     dataType: 'json',
   })
 );

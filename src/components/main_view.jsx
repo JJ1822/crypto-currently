@@ -23,6 +23,7 @@ class MainView extends Component {
 constructor(props) {
   super(props);
   this.props.requestCoinPrice("BTC");
+  this.props.requestPastCoinPrices();
 
   this.state = ({
     // Default value is defined in MainViewContainer.
@@ -41,11 +42,11 @@ constructor(props) {
 componentWillMount() {
   this.setState({
     // Default value is defined in MainViewContainer.
-    intervalTime: 4000,
+    intervalTime: 60000,
     coinName: this.props.coinName,
     coinTag: this.props.coinTag,
     coinPrice: this.props.coinPrice,
-    coinPriceList: this.props.coinPriceList,
+    coinPriceList: [],
   });
 }
 
@@ -64,22 +65,11 @@ componentWillUnmount() {
 // Methods
 // ==================================================
 updatePriceList(newPrice) {
-  if (this.state.coinPriceList.every((x) => (x === 0))) {
-    let priceList = []
-    // Initialize with 16 points that all just show price at the time the
-    // component was loaded; this will animate graph upwards.
-    for (let i = 0; i < 16; i++) {
-      priceList = priceList.concat(newPrice);
-    }
-
-    return priceList;
-
-  } else {
-    return this.state.coinPriceList.slice(1).concat(newPrice);
-  }
+  return this.state.coinPriceList.slice(1).concat(newPrice);
 }
 
 updateCoins() {
+  this.props.requestPastCoinPrices();
   this.props.requestCoinPrice("BTC");
 
   const newPrice = this.props.coinPrice;
@@ -163,7 +153,7 @@ handleGetBitcoin() {
 
   render() {
     const {coinName, coinTag, coinPrice} = this.state;
-    // console.log(this.props);
+    console.log(this.props);
     // console.log(this.state);
 
     return (
@@ -186,9 +176,6 @@ handleGetBitcoin() {
             </div>
             {this.renderTwitterFeed()}
           </div>
-
-
-
 
         </div>
         <div className="main-view-footer">
