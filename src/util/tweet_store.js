@@ -18,6 +18,7 @@ class TwitterStore {
       this.newTweets.push(tweet);
     }
     if(Date.now() - this.clock > (1000 * 60)) {
+      this.tweetIds = []
       this.filterTweets();
       this.clock = Date.now();
     }
