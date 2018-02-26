@@ -20,21 +20,21 @@ class BarChart extends Component {
         fear: 0.142307,
         sadness: 0.118776 }],
       data: {
-        labels: ["Anger", "Joy", "Disgust", "Fear", "Sadness"],
+        labels: ["Anger", "Disgust", "Fear", "Joy", "Sadness"],
         datasets: [{
             data: [50,50,50,50,50],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
                 'rgba(153, 102, 255, 0.2)'
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
+                'rgba(54, 162, 235, 1)',
                 'rgba(153, 102, 255, 1)'
             ],
             borderWidth: 3
@@ -62,7 +62,7 @@ class BarChart extends Component {
 
   normalizeInput(watsonResponseObject) {
     // console.log("============================");
-    // console.log(watsonResponseObject);
+    console.log(watsonResponseObject);
     // console.log(this);
     return [ Math.floor(watsonResponseObject.anger * 100),
      Math.floor(watsonResponseObject.disgust * 100),
@@ -72,8 +72,8 @@ class BarChart extends Component {
   }
 
   componentWillMount() {
-    // this.apiCall();
-    // setInterval(this.apiCall, 1000 * 30)
+    this.apiCall();
+    setInterval(this.apiCall, 1000 * 30)
     }
 
 
