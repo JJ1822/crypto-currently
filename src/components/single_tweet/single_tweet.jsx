@@ -11,6 +11,12 @@ constructor(props) {
 }
 
 // ==================================================
+// Lifecycle
+// ==================================================
+  componentWillReceiveProps(newProps) {
+    console.log('single tweet', newProps);
+  }
+// ==================================================
 // Render
 // ==================================================
   render() {
@@ -22,19 +28,9 @@ constructor(props) {
             data-height="100%"
             data-theme="dark"
             data-lang="en">
-            <a href="https://twitter.com/ForbesCrypto/status/967442398891651073?ref_src=twsrc%5Etfw"></a>
-          {
-            !function(d,s,id){
-              var js, fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-              // console.log(s);
 
-              if(!d.getElementById(id)){
-                js=d.createElement(s);js.id=id;
-                js.src=p+"://platform.twitter.com/widgets.js";
-                fjs.parentNode.insertBefore(js,fjs);
-              }
-            }(document,"script","twitter-wjs")
-          }
+
+            <a href={`https://twitter.com/${this.props.tweetUserName}/status/495695865445486592`}>TWEET</a>
           </blockquote>
       </div>
 

@@ -62,7 +62,7 @@ class BarChart extends Component {
 
   normalizeInput(watsonResponseObject) {
     // console.log("============================");
-    console.log(watsonResponseObject);
+    // console.log(watsonResponseObject);
     // console.log(this);
     return [ Math.floor(watsonResponseObject.anger * 100),
      Math.floor(watsonResponseObject.disgust * 100),
