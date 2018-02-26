@@ -9,7 +9,9 @@ class DoughnutChart extends Component {
   // ==================================================
     constructor(props){
       super(props);
+      this.counter = 0;
       this.state = {
+        response: [],
         data: {
           labels: ["Negative", "Positive"],
           datasets: [{
@@ -38,9 +40,20 @@ class DoughnutChart extends Component {
 // ==================================================
 // Lifecycle:
 // ==================================================
+  componentWillMount() {
+    this.apiCall();
+    // setInterval(this.apiCall, 1000 * 30)
+  }
+
   componentWillReceiveProps(newProps){
+    this.counter = this.counter % this.state.response.length;
+    // console.log(this.state.response[this.counter]);
+    // console.log(this.counter);
+    this.agregateEmotions(this.state.response[this.counter]);
+    this.counter += 1;
+
     // this.agregateEmotions(newProps);
-    this.agregateEmotions(); // test
+    // this.agregateEmotions(); // test
   }
 // ==================================================
 // Agregate Emotions:
@@ -79,6 +92,18 @@ class DoughnutChart extends Component {
           Math.floor(positive)
         ]
       );
+  }
+
+  apiCall() {
+    fetch('/tone')
+        .then(response => {
+          // console.log(response);
+          return response.json();
+        })
+        .then((values) => {
+          this.setState({response: values});
+        });
+
   }
 
 // ==================================================
