@@ -32,7 +32,7 @@ constructor(props) {
     coinName: this.props.coinName,
     coinPrice: this.props.coinPrice,
     coinPriceList: this.props.coinPriceList,
-    tweetIds: [1]
+    tweetObj: [1]
   };
 
   this.updateCoins = this.updateCoins.bind(this);
@@ -62,8 +62,8 @@ componentDidMount() {
 }
 
 componentWillReceiveProps(newProps) {
+  this.counter = this.counter % this.state.tweetObj.length;
   this.counter += 1;
-  this.counter = this.counter % this.state.tweetIds.length;
 
 }
 
@@ -112,7 +112,7 @@ apiCall() {
         return response.json();
       })
       .then((values) => {
-        this.setState({tweetIds: values});
+        this.setState({tweetObj: values});
       });
 }
 
@@ -185,7 +185,10 @@ handleGetBitcoin() {
   }
 
   renderSingleTweet() {
-    return <SingleTweet tweetId={this.state.tweetIds[this.counter]} tweetUserName={'WilliamShatner'}/>;
+    console.log('TWEET OBJECT IN MAIN', this.state.tweetObj[this.counter]);
+    console.log('MAIN COUNTER', this.counter);
+
+    return <SingleTweet tweetId={this.state.tweetObj[this.counter].tweetId} userId={this.state.tweetObj[this.counter].userId}/>;
   }
 
   render() {
