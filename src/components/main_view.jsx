@@ -22,15 +22,18 @@ class MainView extends Component {
 // ==================================================
 constructor(props) {
   super(props);
+  this.counter = 0;
+
   this.props.requestCoinPrice("BTC");
 
-  this.state = ({
+  this.state = {
     // Default value is defined in MainViewContainer.
     coinTag: this.props.coinTag,
     coinName: this.props.coinName,
     coinPrice: this.props.coinPrice,
     coinPriceList: this.props.coinPriceList,
-  });
+    tweetObj: [1]
+  };
 
   this.updateCoins = this.updateCoins.bind(this);
 }
@@ -54,6 +57,14 @@ componentDidMount() {
     () => this.updateCoins(),
     this.state.intervalTime,
   );
+
+  this.apiCall();
+}
+
+componentWillReceiveProps(newProps) {
+  this.counter = this.counter % this.state.tweetObj.length;
+  this.counter += 1;
+
 }
 
 componentWillUnmount() {
@@ -89,6 +100,22 @@ updateCoins() {
     coinPriceList: this.updatePriceList(newPrice),
   });
 }
+
+// ==================================================
+// API
+// ==================================================
+
+apiCall() {
+  fetch('/tweetIds')
+      .then(response => {
+        // console.log(response);
+        return response.json();
+      })
+      .then((values) => {
+        this.setState({tweetObj: values});
+      });
+}
+
 
 // ==================================================
 // Event Handlers
@@ -158,7 +185,10 @@ handleGetBitcoin() {
   }
 
   renderSingleTweet() {
-    return <SingleTweet/>;
+    console.log('TWEET OBJECT IN MAIN', this.state.tweetObj[this.counter]);
+    console.log('MAIN COUNTER', this.counter);
+
+    return <SingleTweet tweetId={this.state.tweetObj[this.counter].tweetId} userId={this.state.tweetObj[this.counter].userId}/>;
   }
 
   render() {
