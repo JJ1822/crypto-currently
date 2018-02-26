@@ -17,9 +17,9 @@ class DoughnutChart extends Component {
           datasets: [{
               data: [25, 75],
               backgroundColor: [
-                  'rgba(255, 99, 132, 1.0)',
-                  'rgba(54, 162, 235, 1.0)',
-                  'rgba(255, 206, 86, 1.0)'
+                  'rgba(255, 99, 132, 0.5)',
+                  'rgba(54, 162, 235, 0.5)',
+                  'rgba(255, 206, 86, 0.5)'
               ],
               borderColor: [
                   'rgba(255,99,132,1)',

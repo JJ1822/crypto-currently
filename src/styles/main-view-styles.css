@@ -112,15 +112,16 @@
   /* display: flex; */
   flex-direction: column;
   /* height: 300px; */
-  background-color: var(--lightGrey);
+  /* background-color: var(--lightGrey); */
   border-radius: 5px;
   margin-right: 30px;
+  margin-top: 30px;
 }
 
 .price-graph-header {
   display: flex;
   /* padding: 15px; */
-  color: #888;
+  color: #fff;
   /* font-size: 30px; */
   width: 100%;
   justify-content: center;
@@ -145,11 +146,13 @@
   /* Temporary styling for placeholding, change once feature is implemented */
   display: flex;
   align-items: center;
+  margin-top: 10px;
   /* margin-bottom: 20px; */
+  /* border: 1px solid rgb(102, 117, 126); */
 
-  background-color: var(--lightGrey);
+  /* background-color: var(--darkestGrey); */
   /* min-width: 300px; */
-  height: 320px;
+  height: 220px;
   border-radius: 5px;
   margin-right: 30px;
   margin-bottom: 12px;
@@ -168,14 +171,16 @@
   /* Temporary styling for placeholding, change once feature is implemented */
   display: flex;
   align-items: center;
-  /* margin-bottom: 20px; */
+  margin-top: 10px;
 
   /* test */
   /* border: 2px solid green;  */
 
-  background-color: var(--lightGrey);
+  /* background-color: var(--lightGrey); */
+  /* border: 1px solid rgb(102, 117, 126); */
+  /* border-bottom: 1px solid #000; */
   /* min-width: 300px; */
-  height: 320px;
+  height: 220px;
   border-radius: 5px;
 }
 
@@ -194,12 +199,14 @@
 .chart-title {
   display: flex;
   justify-content: center;
-  color: #444;
+  color: #fff;
+  /* color: rgb(54, 162, 235); */
 
   margin-bottom: 25px;
   /* border: 1px solid red; */
-  background-color: #888;
-  font-size: 22px;
+  /* background-color: #888; */
+  /* background-color: rgb(54, 162, 235); */
+  font-size: 16px;
   /* border-radius: 5px; */
 }
 
@@ -211,12 +218,11 @@
   width: 340px;
 
   height: 318px;
-  padding-top: 2px;
 
   /* test */
-  /* border: 2px solid green;  */
+  /* border: 2px solid green; */
 
-  background-color: var(--lightGrey);
+  /* background-color: var(--lightGrey); */
   border-radius: 5px;
   overflow: scroll;
 }
@@ -250,7 +256,7 @@
   align-content: center;
   /* margin-top: 20px; */
   /* margin-right: 30px; */
-  background-color: var(--lightGrey);
+  /* background-color: var(--lightGrey); */
   height: 300px;
   border-radius: 5px;
 }
@@ -260,7 +266,7 @@
 .twitter-feed-content {
   /* Temporary styling for placeholding, change once feature is implemented */
   /* background-color: var(--light-blue); */
-  background-color: var(--lightGrey);
+  /* background-color: var(--lightGrey); */
   width: 310px;
   height: 300px;
   border-radius: 5px;

@@ -31,7 +31,7 @@ constructor(props) {
     console.log('this.props.tweetId', this.props.tweetId);
     return (
       <div className='main-tweet-box'>
-        <TweetEmbed options={{theme: 'dark', width: '340', cards: 'hidden' }} id={`${this.state.tweetObj[this.counter].tweetId}`} />
+        <TweetEmbed options={{theme: 'dark', width: '340', cards: 'hidden'}} id={`${this.state.tweetObj[this.counter].tweetId}`} />
       </div>
     );
   }
