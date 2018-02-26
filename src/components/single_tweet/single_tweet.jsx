@@ -1,32 +1,28 @@
 import React from 'react';
 import {Component} from 'react';
-
+import TweetEmbed from 'react-tweet-embed';
 
 class SingleTweet extends Component {
 
 constructor(props) {
   super(props);
-  this.simpleTweet = "That feeling when you just bought the dip because you know Bitcoin will always bounce back every single time";
-  // this.simpleTweet = "I <3 BTC";
-  // this.state = {
-  //   userId: this.props.userId,
-  //   tweetId: this.props.tweetId,
-  // }
+  this.counter = 0;
+  this.state = {
+    userId: this.props.userId,
+    tweetId: this.props.tweetId,
+    tweetObj: this.props.tweetObj,
+  }
 }
 
 // ==================================================
 // Lifecycle
 // ==================================================
-  // componentWillReceiveProps(newProps) {
-  //   console.log('NEW PROPS', newProps);
-  //   // console.log('old state', this.state.userId);
-  //   // this.setState({userId: newProps.userId});
-  //   // this.setState({tweetId: newProps.tweetId});
-  //   this.state.userId = newProps.userId;
-  //   this.state.tweetId = newProps.tweetId;
-  //   console.log('====');
-  //   console.log('new state', this.state.userId);
-  // }
+  componentWillReceiveProps(newProps){
+    this.counter += 1;
+    this.counter = this.counter % this.state.tweetObj.length;
+    console.log('SINGLE TWEET COUNTER', this.counter);
+    console.log('SINGLE TWEET ARR', this.state.tweetObj[this.counter]);
+  }
 // ==================================================
 // Render
 // ==================================================
@@ -35,20 +31,8 @@ constructor(props) {
     console.log('this.props.tweetId', this.props.tweetId);
     return (
       <div className='main-tweet-box'>
-          <blockquote className="twitter-tweet"
-            data-cards="hidden"
-            data-width="100%"
-            data-height="100%"
-            data-theme="dark"
-            data-lang="en">
-
-
-            <a href={`https://twitter.com/${this.props.userId}/status/${this.props.tweetId}`}>TWEET</a>
-          </blockquote>
+        <TweetEmbed options={{theme: 'dark', width: '340', cards: 'hidden' }} id={`${this.state.tweetObj[this.counter].tweetId}`} />
       </div>
-
-
-
     );
   }
 
@@ -56,6 +40,23 @@ constructor(props) {
 
 
 export default SingleTweet;
+
+//
+// <a href={`https://twitter.com/${this.props.userId}/status/${this.props.tweetId}`}>TWEET</a>
+//
+
+
+// <blockquote class="twitter-tweet" data-lang="en">
+//   <a href="https://twitter.com/trend_slam/status/967934452608524293?ref_src=twsrc%5Etfw">tweeeet</a>
+// </blockquote>
+// <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+//
+//
+//
+
+
+
+
 
 
 
