@@ -2,15 +2,12 @@ import React from 'react';
 import {Component} from 'react';
 import Chart from 'chart.js';
 import {Bar} from 'react-chartjs-2';
-
-
 class BarChart extends Component {
 // ==================================================
 // Constructor
 // ==================================================
   constructor(props){
     super(props);
-
     this.counter = 0;
     this.state = {
       response: [{
@@ -41,7 +38,6 @@ class BarChart extends Component {
         }]
       }
     }
-
     this.options = {
       scales: {
         yAxes: [{
@@ -63,11 +59,9 @@ class BarChart extends Component {
     this.apiCall = this.apiCall.bind(this);
     Chart.defaults.global.legend.display = false;
   }
-
 // ==================================================
 // NormalizeInput
 // ==================================================
-
   normalizeInput(watsonResponseObject) {
     // console.log("============================");
     // console.log(watsonResponseObject);
@@ -78,24 +72,18 @@ class BarChart extends Component {
      Math.floor(watsonResponseObject.joy * 100),
      Math.floor(watsonResponseObject.sadness * 100)];
   }
-
   componentWillMount() {
     this.apiCall();
     setInterval(this.apiCall, 1000 * 30)
     }
-
-
-
 // ==================================================
 // Lifecycle
 // ==================================================
-
   componentWillReceiveProps(newProps){
       this.counter = this.counter % this.state.response.length;
       this.state.data.datasets[0].data = this.normalizeInput(this.state.response[this.counter]);
       this.counter += 1;
   }
-
   apiCall() {
     fetch('/tone')
         .then(response => {
@@ -105,9 +93,7 @@ class BarChart extends Component {
         .then((values) => {
           this.setState({response: values});
         });
-
   }
-
 // ==================================================
 // Render
 // ==================================================
@@ -117,14 +103,9 @@ class BarChart extends Component {
         <div className="chart-title">
           <h1>EMOTIONAL DISTRIBUTION</h1>
         </div>
-
         <Bar id='actual-bar-chart' data={this.state.data} options={this.options} />
       </div>
-
     );
   }
-
 }
-
-
 export default BarChart;
