@@ -12,8 +12,8 @@ class PriceLineGraph extends Component {
     const {intervalTime} = this.props;
 
     let labels = [];
-    for (let i = 14; i >= 0; i--) {
-      labels.push(`-${(parseFloat(intervalTime)/1000) + (i * 2)}s`)
+    for (let i = 28; i >= 0; i--) {
+      labels.push(`-${(parseFloat(intervalTime)/1000) + (i)}m`)
     }
 
     return labels.concat('now')
@@ -21,7 +21,7 @@ class PriceLineGraph extends Component {
 
   getData() {
     const {prices} = this.props;
-
+    console.log(prices);
 
     return {
       // TODO: This should update with minutes.
@@ -46,7 +46,7 @@ class PriceLineGraph extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: prices.map((price) => parseInt(price)),
+          data: prices,
         }
       ]
     };

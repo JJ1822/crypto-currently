@@ -74,7 +74,7 @@ class BarChart extends Component {
   componentWillMount() {
     // this.apiCall();
     // setInterval(this.apiCall, 1000 * 30)
-    }
+  }
 
 
 

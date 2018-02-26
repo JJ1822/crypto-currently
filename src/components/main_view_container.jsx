@@ -9,7 +9,9 @@ import MainView from './main_view';
 
 const mapStateToProps = (state, ownProps) => {
   const coinPrice = state.coin.amount ? parseFloat(state.coin.amount) : null;
-  const coinPriceList = state.coin.prices;
+  let nullArray = []
+  for (let i = 0; i < 30; i++) {nullArray.push(0)};
+  const coinPriceList = state.coin.prices ? state.coin.prices : nullArray;
 
   return ({
     // Default to Bitcoin.

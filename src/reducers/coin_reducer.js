@@ -10,7 +10,7 @@ const coinReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_PAST_COIN_PRICES:
       let prices = [];
-      for (let i = 0; i < 24; i++) {
+      for (let i = 0; i < 30; i++) {
         prices.push(action.payload.Data[i].close);
       }
       return merge({}, oldState, {["prices"]: prices});
