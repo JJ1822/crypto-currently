@@ -45,10 +45,18 @@ class BarChart extends Component {
     this.options = {
       scales: {
         yAxes: [{
-            ticks: {
-                beginAtZero:true,
-                max: 100
-            }
+          gridLines: {
+              display:false
+          },
+          ticks: {
+            beginAtZero:true,
+            // max: 100
+          }
+        }],
+        xAxes: [{
+          gridLines: {
+            display:false
+          }
         }]
       }
     }

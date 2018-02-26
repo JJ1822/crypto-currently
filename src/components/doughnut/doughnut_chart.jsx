@@ -47,8 +47,8 @@ class DoughnutChart extends Component {
 
   componentWillReceiveProps(newProps){
     this.counter = this.counter % this.state.response.length;
-    console.log(this.state.response[this.counter]);
-    console.log(this.counter);
+    // console.log(this.state.response[this.counter]);
+    // console.log(this.counter);
     this.agregateEmotions(this.state.response[this.counter]);
     this.counter += 1;
 
