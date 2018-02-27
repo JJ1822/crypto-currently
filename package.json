@@ -1,5 +1,6 @@
 {
   "name": "crypto-cense",
+  "homepage" : "https://crypto-currently.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
