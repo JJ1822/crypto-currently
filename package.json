@@ -1,8 +1,12 @@
 {
-  "name": "crypto-cense",
+  "name": "crypto-currently",
   "homepage" : "https://crypto-currently.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "6.10.1",
+    "npm": "3.10.10"
+  },
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
