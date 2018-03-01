@@ -2,6 +2,7 @@
   "name": "crypto-cense",
   "version": "0.1.0",
   "private": true,
+
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -33,11 +34,10 @@
   "scripts": {
     "start": "react-scripts start & npm run map & npm run server",
     "map": "node twitter-geo-server-js-master/server.js",
-    "server": "node src/util/server.js",
-    "dev": "npm run map & npm run server",
+    "server": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "proxy": "http://localhost:4000/api"
+  }
+
 }

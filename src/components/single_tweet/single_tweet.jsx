@@ -8,8 +8,6 @@ constructor(props) {
   super(props);
   this.counter = 0;
   this.state = {
-    userId: this.props.userId,
-    tweetId: this.props.tweetId,
     tweetObj: this.props.tweetObj,
   }
 }
@@ -20,15 +18,15 @@ constructor(props) {
   componentWillReceiveProps(newProps){
     this.counter += 1;
     this.counter = this.counter % this.state.tweetObj.length;
-    console.log('SINGLE TWEET COUNTER', this.counter);
-    console.log('SINGLE TWEET ARR', this.state.tweetObj[this.counter]);
+    // console.log('SINGLE TWEET COUNTER', this.counter);
+    // console.log('SINGLE TWEET ARR', this.state.tweetObj[this.counter]);
   }
 // ==================================================
 // Render
 // ==================================================
   render() {
-    console.log('this.props.userId', this.props.userId);
-    console.log('this.props.tweetId', this.props.tweetId);
+
+
     return (
       <div className='main-tweet-box'>
         <TweetEmbed options={{theme: 'dark', width: '340', cards: 'hidden'}} id={`${this.state.tweetObj[this.counter].tweetId}`} />

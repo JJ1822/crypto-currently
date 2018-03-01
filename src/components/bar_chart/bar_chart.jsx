@@ -68,9 +68,6 @@ class BarChart extends Component {
 // NormalizeInput
 // ==================================================
   normalizeInput(watsonResponseObject) {
-    // console.log("============================");
-    // console.log(watsonResponseObject);
-    // console.log(this);
     return [ Math.floor(watsonResponseObject.anger * 100),
      Math.floor(watsonResponseObject.disgust * 100),
      Math.floor(watsonResponseObject.fear * 100),
@@ -79,7 +76,7 @@ class BarChart extends Component {
   }
   componentWillMount() {
     this.apiCall();
-    setInterval(this.apiCall, 1000 * 30)
+    setInterval(this.apiCall, 1000 * 60 * 21)
     }
 // ==================================================
 // Lifecycle
@@ -90,9 +87,8 @@ class BarChart extends Component {
       this.counter += 1;
   }
   apiCall() {
-    fetch('/tone')
+    fetch('/api/tone')
         .then(response => {
-          // console.log(response);
           return response.json();
         })
         .then((values) => {

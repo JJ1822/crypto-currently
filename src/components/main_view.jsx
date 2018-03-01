@@ -33,7 +33,7 @@ constructor(props) {
     coinName: this.props.coinName,
     coinPrice: this.props.coinPrice,
     coinPriceList: this.props.coinPriceList,
-    tweetObj: {tweetId: "967934564336357377", userId: "129935623"}
+    tweetObj: [{tweetId: "967934564336357377", userId: "129935623"}]
   };
 
   this.updateCoins = this.updateCoins.bind(this);
@@ -54,11 +54,12 @@ componentWillMount() {
 }
 
 componentDidMount() {
+  debugger
   this.coinPriceUpdate = setInterval(
     () => this.updateCoins(),
     this.state.intervalTime,
   );
-
+  console.log("+++++++++++++++++++");
   this.apiCall();
 }
 
@@ -96,13 +97,15 @@ updateCoins() {
 // ==================================================
 
 apiCall() {
-  fetch('/tweetIds')
+
+  fetch('/api/tweetIds')
       .then(response => {
-        // console.log(response);
         return response.json();
       })
       .then((values) => {
+
         this.setState({tweetObj: values});
+        console.log("+++++++++++++", this.state);
       });
 }
 
@@ -174,9 +177,9 @@ handleGetBitcoin() {
   }
 
   renderSingleTweet() {
-    // console.log('MAIN COUNTER', this.counter);
-    if (this.state.tweetObj[17]) {
-      return <SingleTweet tweetObj={this.state.tweetObj} tweetId={this.state.tweetObj[17].tweetId} userId={this.state.tweetObj[17].userId}/>;
+    console.log(this.state);
+    if (this.state.tweetObj) {
+      return <SingleTweet tweetObj={this.state.tweetObj} />;
     } else {
       return null;
     }
@@ -184,8 +187,7 @@ handleGetBitcoin() {
 
   render() {
     const {coinName, coinTag, coinPrice} = this.state;
-    console.log(this.props);
-    // console.log(this.state);
+
 
     return (
       <div className="main-view-container">
