@@ -8,28 +8,49 @@ constructor(props) {
   super(props);
   this.counter = 0;
   this.state = {
-    tweetObj: this.props.tweetObj,
+    tweet: "",
+    tweetObj: [],
   }
 }
 
 // ==================================================
 // Lifecycle
 // ==================================================
+  componentWillMount() {
+    this.apiCall();
+    this.timer = setInterval(this.apiCall, 1000 * 60 * 21)
+  }
+
   componentWillReceiveProps(newProps){
-    this.counter += 1;
     this.counter = this.counter % this.state.tweetObj.length;
+    this.state.tweet = this.state.tweetObj[this.counter].tweetId
+    this.counter += 1;
     // console.log('SINGLE TWEET COUNTER', this.counter);
     // console.log('SINGLE TWEET ARR', this.state.tweetObj[this.counter]);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  apiCall() {
+    fetch('/api/tweetIds')
+        .then(response => {
+          return response.json();
+        })
+        .then((values) => {
+          this.setState({tweetObj: values});
+        });
+
   }
 // ==================================================
 // Render
 // ==================================================
   render() {
 
-
     return (
       <div className='main-tweet-box'>
-        <TweetEmbed options={{theme: 'dark', width: '340', cards: 'hidden'}} id={`${this.state.tweetObj[this.counter].tweetId}`} />
+        <TweetEmbed options={{theme: 'dark', width: '340', cards: 'hidden'}} id={`${this.state.tweet}`} />
       </div>
     );
   }

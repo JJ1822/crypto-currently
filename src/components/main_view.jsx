@@ -59,8 +59,6 @@ componentDidMount() {
     () => this.updateCoins(),
     this.state.intervalTime,
   );
-  console.log("+++++++++++++++++++");
-  this.apiCall();
 }
 
 componentWillReceiveProps(newProps) {
@@ -96,18 +94,18 @@ updateCoins() {
 // API
 // ==================================================
 
-apiCall() {
-
-  fetch('/api/tweetIds')
-      .then(response => {
-        return response.json();
-      })
-      .then((values) => {
-
-        this.setState({tweetObj: values});
-        console.log("+++++++++++++", this.state);
-      });
-}
+// apiCall() {
+//
+//   fetch('/api/tweetIds')
+//       .then(response => {
+//         return response.json();
+//       })
+//       .then((values) => {
+//
+//         this.setState({tweetObj: values});
+//         console.log("+++++++++++++", this.state);
+//       });
+// }
 
 
 // ==================================================
@@ -177,12 +175,8 @@ handleGetBitcoin() {
   }
 
   renderSingleTweet() {
-    console.log(this.state);
-    if (this.state.tweetObj) {
-      return <SingleTweet tweetObj={this.state.tweetObj} />;
-    } else {
-      return null;
-    }
+
+      return <SingleTweet />;
   }
 
   render() {

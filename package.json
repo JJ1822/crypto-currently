@@ -2,7 +2,7 @@
   "name": "crypto-cense",
   "version": "0.1.0",
   "private": true,
-
+  "homepage": "https://crypto-currently-env.herokuapp.com/",
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -38,6 +38,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "proxy":"http://localhost:4000"
 
 }

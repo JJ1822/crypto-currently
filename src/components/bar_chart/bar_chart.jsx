@@ -74,18 +74,21 @@ class BarChart extends Component {
      Math.floor(watsonResponseObject.joy * 100),
      Math.floor(watsonResponseObject.sadness * 100)];
   }
-  componentWillMount() {
-    this.apiCall();
-    setInterval(this.apiCall, 1000 * 60 * 21)
-    }
 // ==================================================
 // Lifecycle
 // ==================================================
+
+  componentWillMount() {
+    this.apiCall();
+    this.timer = setInterval(this.apiCall, 1000 * 60 * 21)
+  }
+
   componentWillReceiveProps(newProps){
       this.counter = this.counter % this.state.response.length;
       this.state.data.datasets[0].data = this.normalizeInput(this.state.response[this.counter]);
       this.counter += 1;
   }
+
   apiCall() {
     fetch('/api/tone')
         .then(response => {
@@ -94,6 +97,10 @@ class BarChart extends Component {
         .then((values) => {
           this.setState({response: values});
         });
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 // ==================================================
 // Render
