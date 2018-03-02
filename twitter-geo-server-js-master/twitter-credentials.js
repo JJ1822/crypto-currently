@@ -19,7 +19,7 @@
  };
 
  apiKeys.watsonTone = {
-  username: "483e3b1c-3bc9-4c02-8efd-68901ac76083",
-  password: "gcksLub2bNzs",
+  username: "82981b9b-9c6f-4b03-a257-2c0987a70c54",
+  password: "HkvM3H7LM5fl",
   version_date: '2017-02-27'
  };

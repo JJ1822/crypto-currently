@@ -17,7 +17,7 @@ class TwitterStore {
     if(tweet.extended_tweet && tweet.user.followers_count) {
       this.newTweets.push(tweet);
     }
-    if(Date.now() - this.clock > (1000 * 60)) {
+    if(Date.now() - this.clock > (1000 * 60 * 20)) {
       this.tweetIds = []
       this.filterTweets();
       this.clock = Date.now();
@@ -47,14 +47,11 @@ class TwitterStore {
 
 
   filterTweets() {
-    this.filteredTweets = this.newTweets.sort((a,b) => b.user.followers_count - a.user.followers_count).slice(0,80);
-      // console.log(this.filteredTweets[0].user.id_str);
-      // this.tweetIds = this.filteredTweets.map(t => { tweetId: t.id_str});
+    this.filteredTweets = this.newTweets.sort((a,b) => b.user.followers_count - a.user.followers_count).slice(0,200);
       for(let i = 0; i < this.filteredTweets.length; i++) {
         let tweet = this.filteredTweets[i]
         this.tweetIds.push({ tweetId: tweet.id_str, userId: tweet.user.id_str })
       }
-      console.log(this.tweetIds);
 
       let arr = this.filteredTweets.map(t => t.extended_tweet.full_text);
 

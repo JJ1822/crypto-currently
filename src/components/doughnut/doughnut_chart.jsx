@@ -43,18 +43,20 @@ class DoughnutChart extends Component {
 // ==================================================
   componentWillMount() {
     this.apiCall();
-    // setInterval(this.apiCall, 1000 * 30)
+    this.timer = setInterval(this.apiCall, 1000 * 60 * 21)
   }
 
   componentWillReceiveProps(newProps){
     this.counter = this.counter % this.state.response.length;
-    // console.log(this.state.response[this.counter]);
-    // console.log(this.counter);
     this.agregateEmotions(this.state.response[this.counter]);
     this.counter += 1;
 
     // this.agregateEmotions(newProps);
     // this.agregateEmotions(); // test
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 // ==================================================
 // Agregate Emotions:
@@ -96,9 +98,8 @@ class DoughnutChart extends Component {
   }
 
   apiCall() {
-    fetch('/tone')
+    fetch('/api/tone')
         .then(response => {
-          // console.log(response);
           return response.json();
         })
         .then((values) => {
