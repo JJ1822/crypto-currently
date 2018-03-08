@@ -2,7 +2,7 @@
   "name": "crypto-cense",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://crypto-currently-env.herokuapp.com/",
+  "homepage": "https://cryptocurrently.us-west-1.elasticbeanstalk.com/",
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -32,8 +32,7 @@
     "webpack": "^3.11.0"
   },
   "scripts": {
-    "start": "react-scripts start & npm run map & npm run server",
-    "map": "node twitter-geo-server-js-master/server.js",
+    "start": "react-scripts start & npm run server",
     "server": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

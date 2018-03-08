@@ -1,6 +1,7 @@
 const ToneAnalysis = require('./src/util/tone_analyser');
 const StreamTwitter = require('./src/util/twitter');
 const TwitterStore = require('./src/util/tweet_store');
+const initServer = require('./twitter-geo-server-js-master/server.js');
 var path = require('path');
 
 var express = require('express');
@@ -30,8 +31,10 @@ const store = new TwitterStore();
    });
 
 
-
-
-   app.listen(app.get("port"), function() {
+   var http = require('http');
+   var httpServer = http.createServer(app);
+   console.log(initServer);
+   initServer(httpServer);
+   httpServer.listen(app.get("port"), function() {
      console.log("server running");
    });

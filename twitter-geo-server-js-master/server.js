@@ -1,25 +1,29 @@
 var webSocketConnections = [];
 var nextWebSocketConnectionID = 1;
 
-initServer();
+// initServer();
 
-function initServer() {
-  var settings = getServerSettingsFromCommandLine();
-  createServer(settings);
+function initServer(httpServer) {
+  // var settings = getServerSettingsFromCommandLine();
+  createServer(httpServer);
 }
 
-function getServerSettingsFromCommandLine() {
-  var parseCommandLineArguments = require('./js/command-line-arguments');
-  var commandLineArguments = process.argv.slice(2);
-  return parseCommandLineArguments(commandLineArguments);
-}
+// function getServerSettingsFromCommandLine() {
+//   var parseCommandLineArguments = require('./js/command-line-arguments');
+//   var commandLineArguments = process.argv.slice(2);
+//   // return parseCommandLineArguments(commandLineArguments);
+// }
+const BOUNDING_BOX = '-180,-90,180,90';
 
-function createServer(settings) {
+function createServer(httpServer) {
   var createTwitterConnection = require('./js/twitter-connection');
   var createWebSocketServer = require('./js/web-socket-server');
   var twitterCredentials = require('./twitter-credentials');
-  createTwitterConnection(twitterCredentials.mapKey, settings.boundingBox, broadcastPayload);
-  createWebSocketServer(settings.port, serverName(), webSocketConnectionHandler);
+  createTwitterConnection(twitterCredentials.mapKey, BOUNDING_BOX, broadcastPayload);
+
+  var ws = require('ws');
+  var webSocketServer = new ws.Server({ server: httpServer });
+  webSocketServer.on('connection', webSocketConnectionHandler);
 }
 
 function broadcastPayload(payload) {
@@ -51,3 +55,5 @@ function webSocketConnectionHandler(webSocketConnection) {
     });
   }
 }
+
+module.exports = initServer;
