@@ -2,7 +2,6 @@
   "name": "crypto-cense",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://cryptocurrently.us-west-1.elasticbeanstalk.com/",
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
