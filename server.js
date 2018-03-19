@@ -14,7 +14,7 @@ var twit = new Twitter(twitterCredentials.mapKey),
 stream = null;
 
 
- app.set("port", process.env.PORT || 4000);
+ app.set("port", process.env.PORT || 8081);
 
 // Express only serves static assets in production
   // if (process.env.NODE_ENV === "production") {
