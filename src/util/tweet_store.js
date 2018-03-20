@@ -17,7 +17,7 @@ class TwitterStore {
     if(tweet.extended_tweet && tweet.user.followers_count) {
       this.newTweets.push(tweet);
     }
-    if(Date.now() - this.clock > (1000 * 60 * 5)) {
+    if(Date.now() - this.clock > (1000 * 60 * 20)) {
       this.tweetIds = []
       this.filterTweets();
       this.clock = Date.now();
