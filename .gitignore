@@ -16,7 +16,7 @@
 
 .env.test.local
 .env.production.local
-.twitter-credentials
+twitter-credentials.js
 
 
 npm-debug.log*
