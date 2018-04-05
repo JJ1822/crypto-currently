@@ -24,7 +24,7 @@
   <code>Taylor Schmutz</code>
 </div>
 
-<!-- [Live-Demo](https://fmbf.github.io/orbit/ "Orbit : The Game") -->
+[Live-Demo](http://cryptocurrently.us-west-1.elasticbeanstalk.com/ "CRYPTO | currently")
 
 <br/>
 
